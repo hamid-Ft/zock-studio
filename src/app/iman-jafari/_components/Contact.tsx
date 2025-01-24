@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoArrowDown } from "react-icons/io5";
+
 const Contact = () => {
   return (
     <section>
@@ -38,7 +39,7 @@ const Contact = () => {
         </Card>
       </div>
 
-      <p className="flex items-center justify-center gap-2">
+      <p className="flex items-center justify-center gap-2 opacity-50  tracking-widest">
         <IoArrowDown />
         projects
       </p>
