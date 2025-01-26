@@ -1,48 +1,48 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import styles from "./style.module.scss";
+'use client';
+import React, { useEffect, useRef } from 'react';
+import styles from './style.module.scss';
 
-import Card from "./_components/Card";
-import { projects } from "../../../constanse";
+import Card from './_components/Card';
+import { projects } from '../../../constanse';
 
-import { useScroll } from "framer-motion";
-import Lenis from "@studio-freight/lenis";
+import { useScroll } from 'framer-motion';
+import Lenis from 'lenis';
 
 export default function Home() {
-  const container = useRef(null);
+	const container = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
+	const { scrollYProgress } = useScroll({
+		target: container,
 
-    offset: ["start start", "end end"],
-  });
+		offset: ['start start', 'end end'],
+	});
 
-  useEffect(() => {
-    const lenis = new Lenis();
+	useEffect(() => {
+		const lenis = new Lenis();
 
-    function raf(time: any) {
-      lenis.raf(time);
+		function raf(time: any) {
+			lenis.raf(time);
 
-      requestAnimationFrame(raf);
-    }
+			requestAnimationFrame(raf);
+		}
 
-    requestAnimationFrame(raf);
-  });
-  return (
-    <main className={styles.main} ref={container}>
-      {projects.map((project, i) => {
-        const targetScale = 1 - (projects.length - i) * 0.05;
-        return (
-          <Card
-            key={project.id}
-            {...project}
-            i={i}
-            progress={scrollYProgress}
-            range={[i * 0.25, 1]}
-            targetScale={targetScale}
-          />
-        );
-      })}
-    </main>
-  );
+		requestAnimationFrame(raf);
+	});
+	return (
+		<main className={styles.main} ref={container}>
+			{projects.map((project, i) => {
+				const targetScale = 1 - (projects.length - i) * 0.05;
+				return (
+					<Card
+						key={project.id}
+						{...project}
+						i={i}
+						progress={scrollYProgress}
+						range={[i * 0.25, 1]}
+						targetScale={targetScale}
+					/>
+				);
+			})}
+		</main>
+	);
 }
