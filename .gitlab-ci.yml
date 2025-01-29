@@ -1,0 +1,26 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker build -t nextjs-app:$CI_COMMIT_REF_NAME .
+    - docker tag nextjs-app:$CI_COMMIT_REF_NAME your-registry/your-nextjs-app:$CI_COMMIT_REF_NAME
+    - docker push your-registry/your-nextjs-app:$CI_COMMIT_REF_NAME
+
+deploy-staging:
+  stage: deploy
+  only:
+    - staging
+  script:
+    - docker-compose -f docker-compose.staging.yml pull
+    - docker-compose -f docker-compose.staging.yml up -d
+
+deploy-production:
+  stage: deploy
+  only:
+    - main
+  script:
+    - docker-compose -f docker-compose.production.yml pull
+    - docker-compose -f docker-compose.production.yml up -d

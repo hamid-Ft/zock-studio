@@ -1,0 +1,8 @@
+services:
+  app:
+    image: nextjs-app:production
+    ports:
+      - "3003:3000"
+    environment:
+      NODE_ENV: production
+    restart: always

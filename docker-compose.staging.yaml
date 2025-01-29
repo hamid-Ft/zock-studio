@@ -1,0 +1,8 @@
+services:
+  app:
+    image: nextjs-app:staging
+    ports:
+      - "3002:3000"
+    environment:
+      NODE_ENV: staging
+    restart: always
