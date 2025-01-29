@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './style.module.scss';
 
 import Card from './_components/Card';
-import { projects } from '../../../constanse';
+import { projects } from '../../../constance';
 
 import { useScroll } from 'framer-motion';
 import Lenis from 'lenis';
