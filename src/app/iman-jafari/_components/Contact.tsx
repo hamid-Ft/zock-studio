@@ -23,7 +23,7 @@ const Contact = () => {
             </Link>
 
             <Link
-              href="https://www.linkedin.com/in/iman-jf-7b2809244"
+              href="https://www.linkedin.com/in/iman-jafari-cx"
               target="_blank"
             >
               <Button className="w-full mb-2" variant="outline">
