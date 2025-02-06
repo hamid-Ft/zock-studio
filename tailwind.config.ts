@@ -86,6 +86,10 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        shine: {
+          "0%": { "background-position": "100%" },
+          "100%": { "background-position": "-100%" },
+        },
         aurora: {
           from: {
             backgroundPosition: "50% 50%, 50% 50%",
@@ -110,6 +114,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         aurora: "aurora 60s linear infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        shine: "shine 5s linear infinite",
       },
     },
   },
@@ -145,5 +150,4 @@ const config = {
     },
   ],
 } satisfies Config;
-
 export default config;
