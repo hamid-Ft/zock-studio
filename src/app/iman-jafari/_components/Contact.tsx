@@ -1,49 +1,49 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { IoArrowDown } from "react-icons/io5";
+import { AiFillHome } from "react-icons/ai";
+
+import Magnet from "./Magnet/Magnet";
+
+const Contacts = [
+  {
+    id: 1,
+    link: "/",
+    icon: AiFillHome,
+  },
+  {
+    id: 2,
+    link: "mailto:imancx.cx@gmail.com",
+    icon: MdOutlineEmail,
+  },
+  {
+    id: 3,
+    link: "https://www.linkedin.com/in/iman-jafari-cx",
+    icon: FaLinkedin,
+  },
+  {
+    id: 4,
+
+    link: "https://github.com/kaRIOz",
+    icon: FaGithub,
+  },
+];
 
 const Contact = () => {
   return (
-    <section>
-      <div className="flex items-center justify-center h-[80vh]">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-center">Contact With Me</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col w-[380px]">
-            <Link href="mailto:imancx.cx@gmail.com">
-              <Button className="w-full mb-2" variant="outline">
-                <MdOutlineEmail className="text-2xl" />
-              </Button>
-            </Link>
-
-            <Link
-              href="https://www.linkedin.com/in/iman-jafari-cx"
-              target="_blank"
-            >
-              <Button className="w-full mb-2" variant="outline">
-                <FaLinkedin className="text-2xl" />
-              </Button>
-            </Link>
-            <Link href="https://github.com/kaRIOz" target="_blank">
-              <Button className="w-full mb-2" variant="outline">
-                <FaGithub className="text-2xl" />
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
+    <div className="z-50">
+      <div className="flex items-center justify-evenly  border border-zinc-800 p-2 rounded-2xl mt-4">
+        {Contacts.map((c) => (
+          <Link href={c.link} key={c.id} target="_blank">
+            <Magnet padding={250} disabled={false} magnetStrength={2}>
+              <c.icon className="text-4xl text-white" />
+            </Magnet>
+          </Link>
+        ))}
       </div>
-
-      <p className="flex items-center justify-center gap-2 opacity-50  tracking-widest">
-        <IoArrowDown />
-        projects
-      </p>
-    </section>
+    </div>
   );
 };
 

@@ -22,8 +22,9 @@
       // height: 400px;
     }
 
-    background: hsl(222.2 , 84% , 4.9%);
-    border: 1px solid hsl(217.2 ,32.6% , 17.5%);
+    background: rgb(9, 9, 11 , 0.6);
+backdrop-filter: blur(0.5px);
+-webkit-backdrop-filter: blur(0.5px);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.9px);
