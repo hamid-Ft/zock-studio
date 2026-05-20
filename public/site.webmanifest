@@ -1,0 +1,21 @@
+{
+	"name": "Moon Studio",
+	"short_name": "Moon Studio",
+	"description": "Digital product team for web, mobile, backend, commerce, ERP, fintech, map, and AI-assisted interfaces.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#020617",
+	"theme_color": "#020617",
+	"icons": [
+		{
+			"src": "/apple-touch-icon.png",
+			"sizes": "180x180",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
