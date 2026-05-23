@@ -32,6 +32,7 @@ export const profileRoutes = [
 	'/mohammadreza-vasebi',
 	'/mehdi-alikhani',
 	'/omid-nikroo',
+	'/keyvan-moradkhani',
 	'/sepide-soltanpour',
 	'/iman-jafari',
 ];
