@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --page-scrollbar-width: 28px;
+    --page-scrollbar-gutter: calc(var(--page-scrollbar-width) + env(safe-area-inset-right));
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -66,6 +68,70 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    padding-inline-end: var(--page-scrollbar-gutter);
+  }
+
+  [dir="rtl"] body {
+    font-family: var(--font-iran-yekan), var(--font-tanha-fd), var(--font-geist-sans), Tahoma, Arial, sans-serif;
+    font-feature-settings: normal;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+
+  .page-scrollbar {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: 1000;
+    width: var(--page-scrollbar-gutter);
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.28));
+  }
+
+  .scrollbar-safe-fixed-x {
+    left: 0;
+    right: var(--page-scrollbar-gutter);
+  }
+
+  .language-switcher {
+    position: fixed;
+    inset-block-start: calc(1rem + env(safe-area-inset-top));
+    inset-inline-end: calc(var(--page-scrollbar-gutter) + 1rem);
+    z-index: 1001;
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0.42);
+    padding: 0.25rem;
+    color: white;
+    backdrop-filter: blur(16px);
+  }
+
+  .language-switcher__link {
+    display: inline-flex;
+    min-height: 2.25rem;
+    min-width: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgb(212 212 216);
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  .language-switcher__link:hover,
+  .language-switcher__link[aria-current="true"] {
+    background: rgba(103, 232, 249, 0.16);
+    color: rgb(165 243 252);
   }
 
   /* width */
@@ -86,5 +152,11 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #c7c71b;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-scrollbar-width: 22px;
   }
 }

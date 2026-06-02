@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { siteConfig } from './seo';
+import { LanguageSwitcher } from '@/components/i18n/language-switcher';
+import { LocaleHtmlSync } from '@/components/i18n/locale-html-sync';
+import { PageScrollbar } from '@/components/ui/page-scrollbar';
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -12,6 +15,38 @@ const geistMono = localFont({
 	src: './fonts/GeistMonoVF.woff',
 	variable: '--font-geist-mono',
 	weight: '100 900',
+});
+
+// const IRANSans = localFont({
+// 	src: '../fonts/iran-sans.ttf',
+// 	display: 'swap',
+// 	variable: '--font-iran-sans',
+// });
+
+const tanhaFD = localFont({
+	src: './fonts/TanhaFD.woff2',
+	display: 'swap',
+	variable: '--font-tanha-fd',
+});
+
+const iranYekan = localFont({
+	src: [
+		{
+			path: './fonts/iranyekanwebregular.woff2',
+			weight: '400',
+		},
+		{
+			path: './fonts/iranyekanwebmedium.woff',
+			weight: '500',
+		},
+		{
+			path: './fonts/iranyekanwebbold.woff2',
+			weight: '700',
+		},
+	],
+	variable: '--font-iran-yekan',
+	display: 'swap',
+	fallback: ['Tahoma', 'Arial', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -79,7 +114,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="dark">
-			<body className={`${geistSans.variable} ${geistMono.variable}  antialiased`}>{children}</body>
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} ${iranYekan.variable} ${tanhaFD.variable} antialiased`}>
+				<LocaleHtmlSync />
+				{children}
+				<LanguageSwitcher />
+				<PageScrollbar />
+			</body>
 		</html>
 	);
 }
