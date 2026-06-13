@@ -1,11 +1,9 @@
 'use client';
 
-// import { AuroraBackground } from '@/components/ui/aurora-background';
 import LightRays from '@/components/ui/light-ray';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import SplitText from '@/components/ui/text-split-effect';
-import { motion } from 'framer-motion';
-import React from 'react';
+import { motion } from 'motion/react';
 
 export function Banner() {
 	return (

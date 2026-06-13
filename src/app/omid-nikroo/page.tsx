@@ -199,7 +199,7 @@ export default function OmidNikrooPage() {
 	const reduceMotion = useReducedMotion();
 
 	return (
-		<main className="min-h-dvh overflow-hidden bg-black text-white">
+		 <main id="main-content" role="main" className="min-h-dvh overflow-hidden bg-black text-white">
 			<div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(244,114,182,0.12),transparent_24%),linear-gradient(180deg,#020617_0%,#050505_45%,#020617_100%)]" />
 			<DotPattern width={24} height={24} cr={1} className="fixed inset-0 fill-white/[0.045]" />
 			<Spotlight className="-top-40 left-0" fill="#67e8f9" />
@@ -244,7 +244,7 @@ export default function OmidNikrooPage() {
 							<div className="mt-8 flex flex-col gap-3 sm:flex-row">
 								<Button asChild size="lg" className="bg-cyan-300 text-slate-950 hover:bg-cyan-200">
 									<Link href={`mailto:${profile.email}`}>
-										<Mail className="mr-2 size-4" />
+										<Mail className="ms-2 size-4" />
 										Contact
 									</Link>
 								</Button>
@@ -254,7 +254,7 @@ export default function OmidNikrooPage() {
 									variant="outline"
 									className="border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white">
 									<Link href={`tel:${profile.phone}`}>
-										<Phone className="mr-2 size-4" />
+										<Phone className="ms-2 size-4" />
 										Call
 									</Link>
 								</Button>

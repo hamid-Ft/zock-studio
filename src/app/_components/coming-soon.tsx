@@ -1,6 +1,5 @@
 'use client';
 import { Vortex } from '@/components/ui/vortex';
-import React from 'react';
 
 export function ComingSoon() {
 	return (

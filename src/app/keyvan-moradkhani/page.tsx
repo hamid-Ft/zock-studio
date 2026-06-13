@@ -12,7 +12,6 @@ import {
 	ExternalLink,
 	GraduationCap,
 	Layers3,
-	Linkedin,
 	Mail,
 	MapPin,
 	Network,
@@ -260,7 +259,7 @@ export default function KeyvanMoradkhaniPage() {
 	const reduceMotion = useReducedMotion();
 
 	return (
-		<main className="min-h-dvh overflow-hidden bg-black text-white">
+		 <main id="main-content" role="main" className="min-h-dvh overflow-hidden bg-black text-white">
 			<div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(244,114,182,0.12),transparent_24%),linear-gradient(180deg,#020617_0%,#050505_45%,#020617_100%)]" />
 			<DotPattern width={24} height={24} cr={1} className="fixed inset-0 fill-white/[0.045]" />
 			<Spotlight className="-top-40 left-0" fill="#67e8f9" />
@@ -303,7 +302,7 @@ export default function KeyvanMoradkhaniPage() {
 							<div className="mt-8 flex flex-col gap-3 sm:flex-row">
 								<Button asChild size="lg" className="bg-cyan-300 text-slate-950 hover:bg-cyan-200">
 									<Link href={`mailto:${profile.email}`}>
-										<Mail className="mr-2 size-4" />
+										<Mail className="ms-2 size-4" />
 										Contact
 									</Link>
 								</Button>
@@ -312,8 +311,8 @@ export default function KeyvanMoradkhaniPage() {
 									size="lg"
 									variant="outline"
 									className="border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white">
-									<Link href={profile.linkedin} target="_blank">
-										<Linkedin className="mr-2 size-4" />
+									<Link href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+										<ExternalLink className="ms-2 size-4" />
 										LinkedIn
 									</Link>
 								</Button>
@@ -328,7 +327,7 @@ export default function KeyvanMoradkhaniPage() {
 								<CardContent className="space-y-4 text-sm text-zinc-300">
 									<ContactLink icon={Mail} href={`mailto:${profile.email}`} label={profile.email} />
 									<ContactLink icon={Phone} href={`tel:${profile.phone.replaceAll(' ', '')}`} label={profile.phone} />
-									<ContactLink icon={Linkedin} href={profile.linkedin} label="linkedin.com/in/keyvan-moradkhani" external />
+									<ContactLink icon={ExternalLink} href={profile.linkedin} label="linkedin.com/in/keyvan-moradkhani" external />
 								</CardContent>
 							</Card>
 							<div className="grid grid-cols-2 gap-4">
@@ -517,10 +516,11 @@ function ContactLink({
 	label: string;
 	external?: boolean;
 }) {
-	return (
+		return (
 		<Link
 			href={href}
 			target={external ? '_blank' : undefined}
+			rel={external ? 'noopener noreferrer' : undefined}
 			className="group flex min-h-11 items-center justify-between gap-3 rounded-md border border-white/10 bg-white/[0.035] px-3 transition hover:border-cyan-300/40 hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
 			<span className="flex min-w-0 items-center gap-3">
 				<Icon className="size-4 shrink-0 text-cyan-200" />

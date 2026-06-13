@@ -16,7 +16,7 @@ const dockItems = [
 	{ href: '/#capabilities', icon: Sparkles, label: { en: 'Capabilities', fa: 'توانمندی ها' } },
 	{ href: '/#team', icon: UsersRound, label: { en: 'Team', fa: 'تیم' } },
 	{ href: '/#services', icon: Rocket, label: { en: 'Services', fa: 'خدمات' } },
-	{ href: '/#work', icon: Layers3, label: { en: 'Work', fa: 'نمونه کارها' } },
+	{ href: '/#software', icon: Layers3, label: { en: 'Coverage', fa: 'پوشش نیازها' } },
 	{ href: '/#process', icon: BriefcaseBusiness, label: { en: 'Process', fa: 'فرایند' } },
 ];
 
@@ -24,7 +24,7 @@ export function TeamDock() {
 	const locale = getLocaleFromPathname(usePathname());
 
 	return (
-		<div className="scrollbar-safe-fixed-x fixed bottom-6 z-50 px-4">
+		<div className="fixed inset-x-4 z-50 bottom-6 px-4 md:inset-x-6">
 			<TooltipProvider>
 				<Dock direction="middle" className="border-white/10 bg-black/35 shadow-2xl shadow-black/30">
 					{dockItems.map((item) => (

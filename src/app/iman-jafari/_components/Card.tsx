@@ -51,7 +51,7 @@ const Card = ({
             <p>{description}</p>
 
             <span>
-              <Link href={link} target="_blank">
+              <Link href={link} target="_blank" rel="noopener noreferrer">
                 See more
               </Link>
 

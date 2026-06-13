@@ -1,26 +1,30 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import {
 	ArrowUpRight,
 	BriefcaseBusiness,
+	Building2,
 	ChartNoAxesCombined,
 	Code2,
+	CreditCard,
+	DatabaseZap,
 	ExternalLink,
 	Layers3,
 	Map,
 	MonitorCog,
 	Network,
 	PanelTop,
+	Route,
 	Rocket,
 	ShoppingBag,
 	Sparkles,
 	UserRound,
 	UsersRound,
 	WalletCards,
+	Workflow,
 } from 'lucide-react';
 
 import DotPattern from '@/components/ui/dot-pattern';
@@ -35,24 +39,24 @@ import { TeamDock } from './_components/team-dock';
 
 const capabilities = [
 	{
-		title: 'Product Interfaces',
+		title: 'Product-grade interfaces',
 		icon: PanelTop,
-		items: ['Dashboards', 'Admin panels', 'Seller tools', 'Operational apps'],
+		items: ['Dashboards', 'Admin panels', 'Seller tools', 'Workflow apps'],
 	},
 	{
-		title: 'Commerce Systems',
+		title: 'Commerce systems',
 		icon: ShoppingBag,
-		items: ['B2B ordering', 'Marketplaces', 'Catalogs', 'Delivery flows'],
+		items: ['B2B ordering', 'Marketplaces', 'Catalog ops', 'Checkout flows'],
 	},
 	{
-		title: 'Backend Platforms',
+		title: 'Backend platforms',
 		icon: Network,
 		items: ['Microservices', 'Payments', 'Messaging', 'Integrations'],
 	},
 	{
-		title: 'Mobile Experiences',
+		title: 'Mobile operations',
 		icon: MonitorCog,
-		items: ['Cross-platform apps', 'Maps', 'Realtime features', 'Field tools'],
+		items: ['Cross-platform apps', 'Maps', 'Realtime', 'Field tools'],
 	},
 ];
 
@@ -112,7 +116,7 @@ const serviceGroups = [
 		title: 'Commerce & Marketplaces',
 		icon: ShoppingBag,
 		description:
-			'Multi-vendor stores, seller panels, catalog and pricing workflows, checkout surfaces, delivery options, and backoffice operations.',
+			'Multi-vendor stores, seller panels, catalog governance, pricing workflows, checkout surfaces, delivery options, and backoffice operations.',
 	},
 	{
 		title: 'ERP & Internal Tools',
@@ -153,36 +157,70 @@ const signals = [
 	{ label: 'Build style', value: 'Design-led engineering' },
 ];
 
-const work = [
+const softwareNeeds = [
 	{
-		title: 'Commerce Platform',
-		thumbnail: '/projects/aldy.png',
-		description: 'Multi-vendor shopping, seller operations, admin workflows, and payment-facing product surfaces.',
+		title: 'Marketplace & seller operations',
+		icon: ShoppingBag,
+		description:
+			'Vendor onboarding, seller dashboards, product approval, catalog quality, commissions, promotions, and daily marketplace control.',
+		items: ['Seller panel', 'Catalog rules', 'Promotions', 'Backoffice'],
+		outcome: 'Keeps commercial teams, vendors, and admins working from one clear operating layer.',
 	},
 	{
-		title: 'Food Operations',
-		thumbnail: '/projects/ghajarifood.png',
-		description: 'Catering, delivery management, zone pricing, sales operations, and internal management tools.',
+		title: 'ERP, warehouse & finance workflows',
+		icon: Building2,
+		description:
+			'Inventory, purchasing, sales, HR, tax, warehouse movement, reporting, approvals, and role-based internal software.',
+		items: ['Inventory', 'Finance', 'HR', 'Reports'],
+		outcome: 'Connects front-office growth to the internal systems that keep a large operation reliable.',
 	},
 	{
-		title: 'Route & Retail Tools',
-		thumbnail: '/projects/desna.png',
-		description: 'Map-heavy B2B workflows, field execution, retailer ordering, survey, and planning interfaces.',
+		title: 'Payments, credit & fintech layers',
+		icon: CreditCard,
+		description:
+			'Payment gateways, wallets, BNPL-style flows, transaction states, reconciliation surfaces, and secure service integration.',
+		items: ['Gateways', 'Wallets', 'Credit flows', 'Reconciliation'],
+		outcome: 'Turns payment complexity into traceable, supportable product flows for customers and operators.',
 	},
 	{
-		title: 'Industrial Websites',
-		thumbnail: '/projects/nikpu.png',
-		description: 'Brand-aligned public websites, technical content structures, responsive pages, and SEO-ready delivery.',
+		title: 'Delivery, routing & field apps',
+		icon: Route,
+		description:
+			'React Native apps, driver and field-team tools, maps, GPS, zones, route planning, QR scanning, and realtime status.',
+		items: ['Routes', 'Maps', 'QR/PDA', 'Realtime'],
+		outcome: 'Bridges ecommerce orders with people and devices moving in the real world.',
 	},
 	{
-		title: 'Agency Systems',
-		thumbnail: '/projects/niklinkagency.png',
-		description: 'Client-facing web experiences, WordPress builds, launch-ready layouts, and conversion-focused pages.',
+		title: 'Customer apps & web surfaces',
+		icon: MonitorCog,
+		description:
+			'Responsive storefronts, mobile shopping flows, profile areas, support journeys, content pages, landing systems, and SEO-aware launches.',
+		items: ['Storefront', 'Mobile app', 'Support', 'SEO pages'],
+		outcome: 'Gives the public side of the holding the same care as the operational side.',
 	},
 	{
-		title: 'Management Panels',
-		thumbnail: '/projects/ghajari-manager.png',
-		description: 'Dense operational interfaces for teams who repeat actions, compare records, and manage daily workflows.',
+		title: 'Data, search & decision dashboards',
+		icon: DatabaseZap,
+		description:
+			'Data-heavy tables, analytics dashboards, charts, filters, map views, operational KPIs, and fast review workflows.',
+		items: ['KPI panels', 'Search', 'Charts', 'Map views'],
+		outcome: 'Helps managers compare records, find exceptions, and make decisions without fighting the interface.',
+	},
+	{
+		title: 'Integrations & platform services',
+		icon: Workflow,
+		description:
+			'APIs, message brokers, queues, caching, service boundaries, third-party systems, monitoring, and deployment-aware architecture.',
+		items: ['APIs', 'Queues', 'Caching', 'Monitoring'],
+		outcome: 'Creates a platform that can grow without every new product request becoming a rewrite.',
+	},
+	{
+		title: 'AI-assisted product workflows',
+		icon: Sparkles,
+		description:
+			'Assistant screens, consultation flows, structured prompts, internal automation, review tools, and careful human-in-the-loop states.',
+		items: ['Assistants', 'Automation', 'Review UX', 'Prompts'],
+		outcome: 'Adds useful AI where it reduces operational load instead of adding noise.',
 	},
 ];
 
@@ -233,18 +271,18 @@ const homeEn = {
 	teamMembers,
 	serviceGroups,
 	signals,
-	work,
+	softwareNeeds,
 	process,
 	stack,
 	ui: {
 		startProject: 'Start a project',
-		badge: 'Managed digital product team',
-		heroTitle: 'Operational software for teams that need to move faster.',
+		badge: 'Moonlancer software team',
+		heroTitle: 'Moonlancer builds the software layer behind serious commerce operations.',
 		heroText:
-			'A compact product studio for commerce, ERP, logistics, fintech, maps, AI-assisted interfaces, mobile apps, and backend platforms. We design, build, integrate, and improve the systems that run daily work.',
-		capabilitiesCta: 'Capabilities',
-		viewWork: 'View Work',
-		teamOs: 'Team Operating System',
+			'We are a compact product team for ecommerce holdings and operational companies that need web apps, mobile apps, ERP workflows, seller tools, payment services, maps, dashboards, AI-assisted interfaces, and backend platforms to work as one system.',
+		capabilitiesCta: 'Explore capabilities',
+		viewSoftware: 'See holding coverage',
+		teamOs: 'Squad coverage',
 		focus: {
 			fintech: ['Fintech', 'Payments, BNPL, wallets'],
 			fieldOps: ['Field ops', 'Routes, zones, mobile workflows'],
@@ -252,219 +290,245 @@ const homeEn = {
 		},
 		team: {
 			kicker: 'Team',
-			title: 'A compact squad covering product UI, mobile, backend, commerce, ERP, and platform work.',
-			text: 'Moon Studio is structured around delivery roles clients normally have to hire separately. Each person has an individual portfolio, but the value is in how the skills combine into one project team.',
+			title: 'One practical squad for product UI, mobile, backend, commerce, ERP, and platform delivery.',
+			text: 'Moon Studio brings together frontend, mobile, backend, Laravel, Magento, .NET, product UI, and AI interface skills in one delivery team. Clients can review each member portfolio, but the stronger story is how those skills combine around real business software.',
 		},
 		services: {
 			kicker: 'Services',
-			title: 'What clients can ask us to build.',
-			text: 'The homepage should sell capabilities, not only CV technology. These are project types the team can realistically deliver from the skills already represented across the portfolios.',
+			title: 'A managed team for the software a growing holding keeps needing.',
+			text: 'We cover the recurring product surfaces inside commerce-heavy companies: seller tools, ERP screens, customer apps, payment flows, map-based operations, admin panels, integrations, and launch-ready websites.',
 		},
-		work: {
-			kicker: 'Selected Work',
-			title: 'Built for commerce, operations, maps, and management.',
-			text: 'A sample of product surfaces and systems delivered across marketplace, retail, food operations, agency, and industrial workflows.',
+		software: {
+			kicker: 'Holding coverage',
+			title: 'Capabilities instead of a showcase gallery.',
+			text: 'This section replaces visual showcases with the software areas a large ecommerce or retail holding usually needs. It explains where the team can plug in, what we can build, and why those pieces matter together.',
 		},
 		process: {
 			kicker: 'Process',
-			title: 'Organized delivery from unclear workflows to usable systems.',
+			title: 'Organized delivery from unclear workflows to usable production systems.',
 			step: 'Step',
 		},
-		stackRange: 'Stack Range',
+		stackRange: 'Stack range',
 		bestFitTitle: 'Best fit',
 		bestFit:
-			'Teams that need serious product surfaces without the overhead of assembling separate design, frontend, backend, mobile, and ops tracks.',
+			'Companies that need serious product surfaces without the overhead of hiring separate design, frontend, backend, mobile, commerce, and operations tracks.',
 	},
 };
 
 const homeFa: typeof homeEn = {
 	capabilities: [
-		{ title: 'Product Interfaces', icon: PanelTop, items: ['Dashboards', 'Admin panels', 'Seller tools', 'Operational apps'] },
-		{ title: 'Commerce Systems', icon: ShoppingBag, items: ['B2B ordering', 'Marketplaces', 'Catalogs', 'Delivery flows'] },
-		{ title: 'Backend Platforms', icon: Network, items: ['Microservices', 'Payments', 'Messaging', 'Integrations'] },
-		{ title: 'Mobile Experiences', icon: MonitorCog, items: ['Cross-platform apps', 'Maps', 'Realtime features', 'Field tools'] },
+		{ title: 'رابط‌های محصول', icon: PanelTop, items: ['داشبورد', 'پنل ادمین', 'ابزار فروشنده', 'اپ عملیاتی'] },
+		{ title: 'سیستم‌های فروش و مارکت‌پلیس', icon: ShoppingBag, items: ['سفارش B2B', 'مارکت‌پلیس', 'مدیریت کاتالوگ', 'فرایند خرید'] },
+		{ title: 'پلتفرم‌های بک‌اند', icon: Network, items: ['میکروسرویس', 'پرداخت', 'پیام‌رسانی', 'یکپارچه‌سازی'] },
+		{ title: 'عملیات موبایل', icon: MonitorCog, items: ['اپ چندسکویی', 'نقشه', 'زمان واقعی', 'ابزار میدانی'] },
 	],
 	teamMembers: [
 		{
 			name: 'Hamid Fattahi',
 			role: 'Frontend / Product UI',
 			href: '/hamid-ft',
-			focus: 'ساخت interface های Next.js برای ERP، commerce، fintech، maps و management panels.',
+			focus: 'ساخت رابط‌های Next.js برای ERP، فروش آنلاین، فین‌تک، نقشه و پنل‌های مدیریتی.',
 		},
 		{
 			name: 'Sepide Soltanpour',
 			role: 'Frontend / AI UI',
 			href: '/sepide-soltanpour',
-			focus: 'Admin panels، AI consultation interfaces، فرم های داده محور، charts، maps و تحویل تمیز frontend.',
+			focus: 'پنل‌های ادمین، رابط‌های مشاوره هوشمند، فرم‌های داده‌محور، نمودار، نقشه و فرانت‌اند تمیز.',
 		},
 		{
 			name: 'Mohammadreza Vasebi',
 			role: 'React Native Mobile',
 			href: '/mohammadreza-vasebi',
-			focus: 'Cross-platform apps، shopping flows، delivery، loans، QR scanning، realtime features و maps.',
+			focus: 'اپ‌های چندسکویی، جریان خرید، تحویل، وام، اسکن QR، قابلیت‌های زمان واقعی و نقشه.',
 		},
 		{
 			name: 'MohammadReza Parsaeian',
 			role: 'Backend Lead',
 			href: '/mohammadReza-Parsaeian',
-			focus: 'Payment services، GPS platforms، backend leadership، monitoring، distributed services و infrastructure.',
+			focus: 'سرویس‌های پرداخت، پلتفرم‌های GPS، رهبری بک‌اند، مانیتورینگ، سرویس‌های توزیع‌شده و زیرساخت.',
 		},
 		{
 			name: 'Mehdi Alikhani',
 			role: 'Laravel / Magento Backend',
 			href: '/mehdi-alikhani',
-			focus: 'Headless commerce، Magento، Laravel microservices، payment packages، message brokers و DevOps.',
+			focus: 'کامرس headless، Magento، میکروسرویس‌های Laravel، پکیج‌های پرداخت، message broker و DevOps.',
 		},
 		{
 			name: 'Keyvan Moradkhani',
 			role: 'Laravel Full-stack',
 			href: '/keyvan-moradkhani',
-			focus: 'Multi-vendor commerce، REST APIs، tax automation، promotion dashboards و full-stack delivery.',
+			focus: 'مارکت‌پلیس چندفروشنده، REST API، اتوماسیون مالیات، داشبورد پروموشن و تحویل فول‌استک.',
 		},
 		{
 			name: 'Omid Nikroo',
 			role: '.NET Backend',
 			href: '/omid-nikroo',
-			focus: 'ERP modules، warehouse، sales، distribution، HR، route planning، SignalR و database optimization.',
+			focus: 'ماژول‌های ERP، انبار، فروش، پخش، منابع انسانی، مسیر‌یابی، SignalR و بهینه‌سازی دیتابیس.',
 		},
 		{
 			name: 'Iman Jafari',
 			role: 'Frontend Developer',
 			href: '/iman-jafari',
-			focus: 'React، Next.js، TypeScript، Tailwind، interactive frontend، forms، state و modern web UI.',
+			focus: 'React، Next.js، TypeScript، Tailwind، رابط‌های تعاملی، فرم‌ها، مدیریت state و UI مدرن وب.',
 		},
 	],
 	serviceGroups: [
 		{
-			title: 'Commerce & Marketplaces',
+			title: 'فروش آنلاین و مارکت‌پلیس',
 			icon: ShoppingBag,
-			description: 'Multi-vendor stores، seller panels، catalog و pricing workflows، checkout surfaces، delivery options و backoffice operations.',
+			description: 'فروشگاه چندفروشنده، پنل فروشنده، مدیریت کاتالوگ، قیمت‌گذاری، پرداخت، گزینه‌های تحویل و عملیات پشت‌صحنه.',
 		},
 		{
-			title: 'ERP & Internal Tools',
+			title: 'ERP و ابزارهای داخلی',
 			icon: BriefcaseBusiness,
-			description: 'Warehouse، sales، HR، finance، tax automation، reporting dashboards، role-based panels و software عملیاتی با workflow های سنگین.',
+			description: 'انبار، فروش، منابع انسانی، مالی، مالیات، گزارش‌گیری، پنل‌های نقش‌محور و نرم‌افزارهای عملیاتی با گردش‌کار جدی.',
 		},
 		{
-			title: 'Mobile & Field Operations',
+			title: 'موبایل و عملیات میدانی',
 			icon: MonitorCog,
-			description: 'React Native apps، route planning، map interfaces، PDA workflows، QR scanning، realtime communication و ابزارهای field-team.',
+			description: 'اپ React Native، مسیر‌یابی، رابط نقشه، گردش‌کار PDA، اسکن QR، ارتباط زمان واقعی و ابزارهای تیم میدانی.',
 		},
 		{
-			title: 'Backend Platforms',
+			title: 'پلتفرم‌های بک‌اند',
 			icon: Network,
-			description: 'APIs، microservices، payment gateways، messaging، caching، database design، monitoring، integrations و services آماده deployment.',
+			description: 'API، میکروسرویس، درگاه پرداخت، صف و پیام‌رسانی، کش، طراحی دیتابیس، مانیتورینگ، یکپارچه‌سازی و سرویس آماده استقرار.',
 		},
 		{
-			title: 'AI-Assisted Product UI',
+			title: 'رابط‌های محصول با کمک AI',
 			icon: Sparkles,
-			description: 'AI consultation surfaces، assistant workflows، structured prompts، personalized interactions، internal automation و productized AI features.',
+			description: 'رابط مشاوره هوشمند، فرایند دستیار، prompt ساختاریافته، تعامل شخصی‌سازی‌شده، اتوماسیون داخلی و قابلیت‌های AI محصولی.',
 		},
 		{
-			title: 'Websites & Launch Systems',
+			title: 'وب‌سایت و سیستم‌های لانچ',
 			icon: PanelTop,
-			description: 'SEO-aware websites، WordPress builds، landing pages، industrial websites، content structures، brand implementation و responsive launches.',
+			description: 'وب‌سایت‌های آماده SEO، وردپرس، لندینگ، سایت صنعتی، ساختار محتوا، اجرای برند و لانچ واکنش‌گرا.',
 		},
 	],
 	signals: [
-		{ label: 'مدل تحویل', value: 'Focused squads' },
-		{ label: 'سطح اصلی', value: 'Web + Mobile' },
-		{ label: 'حوزه محصول', value: 'Commerce / ERP / Fintech' },
-		{ label: 'سبک ساخت', value: 'Design-led engineering' },
+		{ label: 'مدل تحویل', value: 'اسکواد متمرکز' },
+		{ label: 'سطح اصلی', value: 'وب + موبایل' },
+		{ label: 'حوزه محصول', value: 'فروش / ERP / فین‌تک' },
+		{ label: 'سبک ساخت', value: 'مهندسی محصول‌محور' },
 	],
-	work: [
+	softwareNeeds: [
 		{
-			title: 'Commerce Platform',
-			thumbnail: '/projects/aldy.png',
-			description: 'Multi-vendor shopping، seller operations، admin workflows و product surfaces مرتبط با payment.',
+			title: 'مارکت‌پلیس و عملیات فروشنده',
+			icon: ShoppingBag,
+			description: 'ثبت و مدیریت فروشنده، داشبورد فروشنده، تایید محصول، کیفیت کاتالوگ، کمیسیون، پروموشن و کنترل روزانه مارکت‌پلیس.',
+			items: ['پنل فروشنده', 'قوانین کاتالوگ', 'پروموشن', 'بک‌آفیس'],
+			outcome: 'تیم تجاری، فروشنده و ادمین را در یک لایه عملیاتی شفاف کنار هم نگه می‌دارد.',
 		},
 		{
-			title: 'Food Operations',
-			thumbnail: '/projects/ghajarifood.png',
-			description: 'Catering، delivery management، zone pricing، sales operations و internal management tools.',
+			title: 'ERP، انبار و مالی',
+			icon: Building2,
+			description: 'موجودی، خرید، فروش، منابع انسانی، مالیات، جابه‌جایی انبار، گزارش، تاییدیه‌ها و نرم‌افزار داخلی نقش‌محور.',
+			items: ['موجودی', 'مالی', 'منابع انسانی', 'گزارش'],
+			outcome: 'رشد فروش را به سیستم‌های داخلی قابل اتکا وصل می‌کند.',
 		},
 		{
-			title: 'Route & Retail Tools',
-			thumbnail: '/projects/desna.png',
-			description: 'Workflow های B2B مبتنی بر maps، field execution، retailer ordering، survey و planning interfaces.',
+			title: 'پرداخت، اعتبار و فین‌تک',
+			icon: CreditCard,
+			description: 'درگاه پرداخت، کیف پول، جریان‌های اعتبار و خرید اقساطی، وضعیت تراکنش، مغایرت‌گیری و اتصال امن سرویس‌ها.',
+			items: ['درگاه', 'کیف پول', 'اعتبار', 'مغایرت‌گیری'],
+			outcome: 'پیچیدگی پرداخت را به فرایند قابل پیگیری برای مشتری و اپراتور تبدیل می‌کند.',
 		},
 		{
-			title: 'Industrial Websites',
-			thumbnail: '/projects/nikpu.png',
-			description: 'Public websites هماهنگ با brand، technical content structures، responsive pages و SEO-ready delivery.',
+			title: 'تحویل، مسیر و اپ میدانی',
+			icon: Route,
+			description: 'اپ React Native، ابزار راننده و تیم میدانی، نقشه، GPS، زون‌بندی، مسیر‌یابی، اسکن QR و وضعیت زمان واقعی.',
+			items: ['مسیر', 'نقشه', 'QR/PDA', 'زمان واقعی'],
+			outcome: 'سفارش آنلاین را به آدم‌ها، مسیرها و دستگاه‌های دنیای واقعی وصل می‌کند.',
 		},
 		{
-			title: 'Agency Systems',
-			thumbnail: '/projects/niklinkagency.png',
-			description: 'Client-facing web experiences، WordPress builds، launch-ready layouts و conversion-focused pages.',
+			title: 'اپ مشتری و سطح عمومی وب',
+			icon: MonitorCog,
+			description: 'استورفرانت واکنش‌گرا، جریان خرید موبایل، پروفایل مشتری، پشتیبانی، صفحات محتوا، لندینگ و لانچ SEO-aware.',
+			items: ['استورفرانت', 'اپ موبایل', 'پشتیبانی', 'صفحات SEO'],
+			outcome: 'سمت عمومی کسب‌وکار را به اندازه بخش عملیاتی حرفه‌ای و قابل اعتماد نشان می‌دهد.',
 		},
 		{
-			title: 'Management Panels',
-			thumbnail: '/projects/ghajari-manager.png',
-			description: 'Operational interfaces فشرده برای تیم هایی که records را مقایسه و workflow روزانه را مدیریت می کنند.',
+			title: 'داده، جست‌وجو و داشبورد تصمیم',
+			icon: DatabaseZap,
+			description: 'جدول‌های داده‌محور، داشبورد تحلیلی، نمودار، فیلتر، نمای نقشه، KPI عملیاتی و فرایند سریع بررسی رکوردها.',
+			items: ['KPI', 'جست‌وجو', 'نمودار', 'نمای نقشه'],
+			outcome: 'مدیرها را از گشتن بین فایل‌ها و پنل‌های پراکنده نجات می‌دهد.',
+		},
+		{
+			title: 'یکپارچه‌سازی و سرویس‌های پلتفرم',
+			icon: Workflow,
+			description: 'API، message broker، صف، کش، مرزبندی سرویس‌ها، سیستم‌های بیرونی، مانیتورینگ و معماری آماده استقرار.',
+			items: ['API', 'Queue', 'Cache', 'Monitoring'],
+			outcome: 'کمک می‌کند هر نیاز جدید محصولی به بازنویسی کل سیستم تبدیل نشود.',
+		},
+		{
+			title: 'فرایندهای محصولی با کمک AI',
+			icon: Sparkles,
+			description: 'صفحه دستیار، جریان مشاوره، prompt ساختاریافته، اتوماسیون داخلی، ابزار review و حالت‌های human-in-the-loop.',
+			items: ['دستیار', 'اتوماسیون', 'Review UX', 'Prompt'],
+			outcome: 'AI را جایی وارد محصول می‌کند که بار عملیاتی را کم کند، نه اینکه نویز تازه بسازد.',
 		},
 	],
 	process: [
 		{
-			title: 'نقشه برداری از عملیات',
+			title: 'نقشه‌برداری از عملیات',
 			icon: Map,
-			text: 'Workflow ها، نقش ها، data movement، محدودیت ها و تصمیم هایی را که interface باید پشتیبانی کند روشن می کنیم.',
+			text: 'گردش‌کارها، نقش‌ها، حرکت داده، محدودیت‌ها و تصمیم‌هایی را که رابط باید پشتیبانی کند روشن می‌کنیم.',
 		},
 		{
 			title: 'شکل دادن محصول',
 			icon: Sparkles,
-			text: 'نیازمندی ها را به surfaces قابل استفاده تبدیل می کنیم: screens، states، edge cases، navigation و responsive behavior.',
+			text: 'نیازمندی‌ها را به صفحه، وضعیت، edge case، مسیر کاربر و رفتار واکنش‌گرا تبدیل می‌کنیم.',
 		},
 		{
-			title: 'ساخت production systems',
+			title: 'ساخت سیستم آماده تولید',
 			icon: Code2,
-			text: 'با architecture قابل نگهداری، API integration، performance checks و deployment awareness پیاده سازی می کنیم.',
+			text: 'با معماری قابل نگهداری، اتصال API، بررسی عملکرد و توجه به استقرار پیاده‌سازی می‌کنیم.',
 		},
 		{
 			title: 'عملیات و بهبود',
 			icon: Rocket,
-			text: 'بعد از launch با iteration، monitoring، bug fixing و feature expansion محصول را مفید نگه می داریم.',
+			text: 'بعد از لانچ با iteration، مانیتورینگ، رفع باگ و توسعه قابلیت‌ها محصول را زنده و مفید نگه می‌داریم.',
 		},
 	],
 	stack,
 	ui: {
 		startProject: 'شروع پروژه',
-		badge: 'تیم مدیریت شده digital product',
-		heroTitle: 'Operational software برای تیم هایی که باید سریع تر حرکت کنند.',
+		badge: 'تیم نرم‌افزاری Moonlancer',
+		heroTitle: 'Moonlancer لایه نرم‌افزاری عملیات جدی فروش و تجارت را می‌سازد.',
 		heroText:
-			'Moon Studio یک product studio فشرده برای commerce، ERP، logistics، fintech، maps، AI-assisted interfaces، mobile apps و backend platforms است. ما سیستم های کار روزانه را design، build، integrate و improve می کنیم.',
-		capabilitiesCta: 'توانمندی ها',
-		viewWork: 'مشاهده کارها',
-		teamOs: 'Team Operating System',
+			'ما یک تیم محصول جمع‌وجور برای هلدینگ‌های فروش آنلاین و شرکت‌های عملیاتی هستیم؛ از وب‌اپ و موبایل‌اپ تا ERP، ابزار فروشنده، پرداخت، نقشه، داشبورد، رابط‌های AI و پلتفرم بک‌اند را طوری می‌سازیم که با هم کار کنند.',
+		capabilitiesCta: 'بررسی توانمندی‌ها',
+		viewSoftware: 'پوشش نیازهای هلدینگ',
+		teamOs: 'پوشش اسکواد',
 		focus: {
-			fintech: ['Fintech', 'Payments، BNPL، wallets'],
-			fieldOps: ['Field ops', 'Routes، zones، mobile workflows'],
-			management: ['Management', 'Dashboards، reports، panels'],
+			fintech: ['فین‌تک', 'پرداخت، BNPL، کیف پول'],
+			fieldOps: ['عملیات میدانی', 'مسیر، زون، موبایل'],
+			management: ['مدیریت', 'داشبورد، گزارش، پنل'],
 		},
 		team: {
 			kicker: 'تیم',
-			title: 'یک squad فشرده برای Product UI، mobile، backend، commerce، ERP و platform work.',
-			text: 'Moon Studio حول نقش هایی شکل گرفته که client معمولا باید جداگانه استخدام کند. هر نفر portfolio خودش را دارد، اما ارزش اصلی در ترکیب این skill ها در یک project team است.',
+			title: 'یک اسکواد کاربردی برای رابط محصول، موبایل، بک‌اند، فروش آنلاین، ERP و پلتفرم.',
+			text: 'Moon Studio مهارت‌های فرانت‌اند، موبایل، بک‌اند، Laravel، Magento، .NET، رابط محصول و AI UI را در یک تیم تحویل کنار هم می‌آورد. هر عضو پورتفولیوی خودش را دارد، اما ارزش اصلی در ترکیب این مهارت‌ها برای ساخت نرم‌افزار واقعی کسب‌وکار است.',
 		},
 		services: {
 			kicker: 'خدمات',
-			title: 'چیزهایی که clients می توانند از ما بخواهند بسازیم.',
-			text: 'Homepage باید قابلیت ها را بفروشد، نه فقط تکنولوژی CV را. این ها project type هایی هستند که تیم با skill های موجود می تواند واقع گرایانه تحویل دهد.',
+			title: 'تیمی مدیریت‌شده برای نرم‌افزارهایی که یک هلدینگ در مسیر رشد مدام نیاز دارد.',
+			text: 'ما سطح‌های پرتکرار محصول در شرکت‌های فروش‌محور را پوشش می‌دهیم: ابزار فروشنده، صفحات ERP، اپ مشتری، جریان پرداخت، عملیات نقشه‌محور، پنل ادمین، یکپارچه‌سازی و وب‌سایت آماده لانچ.',
 		},
-		work: {
-			kicker: 'نمونه کارها',
-			title: 'ساخته شده برای commerce، operations، maps و management.',
-			text: 'نمونه ای از product surfaces و systems که در marketplace، retail، food operations، agency و industrial workflows تحویل داده شده اند.',
+		software: {
+			kicker: 'پوشش نیازهای هلدینگ',
+			title: 'به جای گالری نمونه‌کار، توانمندی‌های قابل استفاده را نشان می‌دهیم.',
+			text: 'این بخش توضیح می‌دهد یک هلدینگ فروش آنلاین یا خرده‌فروشی معمولا چه نرم‌افزارهایی لازم دارد، تیم در کجا وارد می‌شود و چرا این بخش‌ها باید کنار هم دیده شوند.',
 		},
 		process: {
 			kicker: 'فرایند',
-			title: 'تحویل سازمان یافته از workflow مبهم تا system قابل استفاده.',
+			title: 'تحویل منظم از گردش‌کار مبهم تا سیستم قابل استفاده در production.',
 			step: 'مرحله',
 		},
-		stackRange: 'Stack Range',
-		bestFitTitle: 'Best fit',
+		stackRange: 'دامنه تکنولوژی',
+		bestFitTitle: 'برای چه تیم‌هایی مناسبیم؟',
 		bestFit:
-			'تیم هایی که product surfaces جدی می خواهند، بدون overhead ساخت جداگانه design، frontend، backend، mobile و ops tracks.',
+			'شرکت‌هایی که سطح‌های محصولی جدی می‌خواهند، اما نمی‌خواهند برای هر مسیر طراحی، فرانت‌اند، بک‌اند، موبایل، کامرس و عملیات یک تیم جدا بسازند.',
 	},
 };
 
@@ -538,11 +602,11 @@ function SectionTitle({
 export default function Home() {
 	const reduceMotion = useReducedMotion();
 	const locale = getLocaleFromPathname(usePathname());
-	const { capabilities, teamMembers, serviceGroups, signals, work, process, stack, ui } =
+	const { capabilities, teamMembers, serviceGroups, signals, softwareNeeds, process, stack, ui } =
 		locale === 'fa' ? homeFa : homeEn;
 
 	return (
-		<main className="min-h-dvh overflow-hidden bg-black text-white">
+		<main id="main-content" role="main" className="min-h-dvh overflow-hidden bg-black text-white">
 			<div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(244,114,182,0.12),transparent_24%),linear-gradient(180deg,#020617_0%,#050505_45%,#020617_100%)]" />
 			<DotPattern width={24} height={24} cr={1} className="fixed inset-0 fill-white/[0.045]" />
 			<Spotlight className="-top-40 left-0" fill="#67e8f9" />
@@ -586,7 +650,7 @@ export default function Home() {
 							<div className="mt-8 flex flex-col gap-3 sm:flex-row">
 								<Button asChild size="lg" className="bg-cyan-300 text-slate-950 hover:bg-cyan-200">
 									<Link href="#capabilities">
-										<Layers3 className="mr-2 size-4" />
+										<Layers3 className="ms-2 size-4" />
 										{ui.capabilitiesCta}
 									</Link>
 								</Button>
@@ -595,9 +659,9 @@ export default function Home() {
 									size="lg"
 									variant="outline"
 									className="border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white">
-									<Link href="#work">
-										<ExternalLink className="mr-2 size-4" />
-										{ui.viewWork}
+									<Link href="#software">
+										<ExternalLink className="ms-2 size-4" />
+										{ui.viewSoftware}
 									</Link>
 								</Button>
 							</div>
@@ -608,7 +672,7 @@ export default function Home() {
 								<CardHeader>
 									<CardTitle className="text-xl">{ui.teamOs}</CardTitle>
 								</CardHeader>
-								<CardContent className="space-y-4">
+								<CardContent className="flex flex-col gap-4">
 									<div className="grid grid-cols-2 gap-3">
 										{signals.map((signal) => (
 											<div key={signal.label} className="rounded-lg border border-white/10 bg-black/20 p-4">
@@ -703,35 +767,49 @@ export default function Home() {
 						</div>
 					</AnimatedSection>
 
-					<AnimatedSection id="work" className="pb-16">
+					<AnimatedSection id="software" className="pb-16">
 						<SectionTitle
 							icon={Layers3}
-							kicker={ui.work.kicker}
-							title={ui.work.title}
-							text={ui.work.text}
+							kicker={ui.software.kicker}
+							title={ui.software.title}
+							text={ui.software.text}
 						/>
-						<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-							{work.map((project, index) => (
+						<div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-4">
+							{softwareNeeds.map((need, index) => (
 								<motion.article
-									key={project.title}
+									key={need.title}
 									initial={reduceMotion ? undefined : { opacity: 0, y: 18 }}
 									whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
 									viewport={{ once: true, margin: '-80px' }}
 									transition={{ delay: index * 0.04, type: 'spring', stiffness: 180, damping: 22 }}
 									whileHover={reduceMotion ? undefined : { y: -5 }}
-									className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] backdrop-blur transition hover:border-cyan-300/35">
-									<div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
-										<Image
-											src={project.thumbnail}
-											alt={`${project.title} preview`}
-											fill
-											sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-											className="object-cover transition duration-300 group-hover:scale-105"
-										/>
-									</div>
-									<div className="p-5">
-										<h3 className="text-lg font-semibold text-white">{project.title}</h3>
-										<p className="mt-3 text-sm leading-6 text-zinc-400">{project.description}</p>
+									className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] text-white backdrop-blur transition hover:border-cyan-300/35 hover:bg-white/[0.07]">
+									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(103,232,249,0.16),transparent_34%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+									<div className="relative flex h-full flex-col gap-5 p-5">
+										<div className="flex items-start justify-between gap-4">
+											<div className="flex size-11 items-center justify-center rounded-md bg-cyan-300/10 text-cyan-200">
+												<need.icon className="size-5" />
+											</div>
+											<span className="rounded-md border border-white/10 bg-black/20 px-2 py-1 text-xs text-zinc-400">
+												{String(index + 1).padStart(2, '0')}
+											</span>
+										</div>
+										<div>
+											<h3 className="text-lg font-semibold text-white">{need.title}</h3>
+											<p className="mt-3 text-sm leading-6 text-zinc-400">{need.description}</p>
+										</div>
+										<div className="mt-auto flex flex-wrap gap-2">
+											{need.items.map((item) => (
+												<span
+													key={item}
+													className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-zinc-200">
+													{item}
+												</span>
+											))}
+										</div>
+										<p className="border-t border-white/10 pt-4 text-xs leading-5 text-cyan-100/80">
+											{need.outcome}
+										</p>
 									</div>
 								</motion.article>
 							))}
@@ -745,7 +823,7 @@ export default function Home() {
 								kicker={ui.process.kicker}
 								title={ui.process.title}
 							/>
-							<div className="space-y-5">
+							<div className="flex flex-col gap-5">
 								{process.map((step, index) => (
 									<motion.article
 										key={step.title}
@@ -769,7 +847,7 @@ export default function Home() {
 							</div>
 						</AnimatedSection>
 
-						<aside className="space-y-6">
+						<aside className="flex flex-col gap-6">
 							<AnimatedSection>
 								<Card className="border-white/10 bg-zinc-950/80 text-white">
 									<CardHeader>

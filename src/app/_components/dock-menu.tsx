@@ -90,7 +90,7 @@ export function DockMenu() {
 	const locale = getLocaleFromPathname(usePathname());
 
 	return (
-		<div className="scrollbar-safe-fixed-x fixed bottom-10 z-50">
+		<div className="fixed inset-x-4 z-50 bottom-10 px-4 md:inset-x-6">
 			<TooltipProvider>
 				<Dock direction="middle">
 					{DATA.navbar.map((item) => (

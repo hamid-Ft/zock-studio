@@ -10,7 +10,6 @@ import {
 	ChartNoAxesCombined,
 	Code2,
 	ExternalLink,
-	Figma,
 	GraduationCap,
 	Layers3,
 	Map,
@@ -222,7 +221,7 @@ export default function SepideSoltanpourPage() {
 	const reduceMotion = useReducedMotion();
 
 	return (
-		<main className="min-h-dvh overflow-hidden bg-black text-white">
+		 <main id="main-content" role="main" className="min-h-dvh overflow-hidden bg-black text-white">
 			<div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(244,114,182,0.12),transparent_24%),linear-gradient(180deg,#020617_0%,#050505_45%,#020617_100%)]" />
 			<DotPattern width={24} height={24} cr={1} className="fixed inset-0 fill-white/[0.045]" />
 			<Spotlight className="-top-40 left-0" fill="#67e8f9" />
@@ -266,7 +265,7 @@ export default function SepideSoltanpourPage() {
 							<div className="mt-8 flex flex-col gap-3 sm:flex-row">
 								<Button asChild size="lg" className="bg-cyan-300 text-slate-950 hover:bg-cyan-200">
 									<Link href={`tel:${profile.phone}`}>
-										<Phone className="mr-2 size-4" />
+										<Phone className="ms-2 size-4" />
 										Call
 									</Link>
 								</Button>
@@ -276,7 +275,7 @@ export default function SepideSoltanpourPage() {
 									variant="outline"
 									className="border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white">
 									<Link href="#projects">
-										<Layers3 className="mr-2 size-4" />
+										<Layers3 className="ms-2 size-4" />
 										Projects
 									</Link>
 								</Button>
@@ -419,7 +418,7 @@ export default function SepideSoltanpourPage() {
 								<Card className="border-white/10 bg-zinc-950/80 text-white">
 									<CardHeader>
 										<CardTitle className="flex items-center gap-2 text-xl">
-											<Figma className="size-5 text-fuchsia-300" />
+											<PanelTop className="size-5 text-fuchsia-300" />
 											Certification
 										</CardTitle>
 									</CardHeader>

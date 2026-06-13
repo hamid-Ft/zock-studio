@@ -1,0 +1,50 @@
+{
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!**/.next",
+      "!**/.claude",
+      "!**/.codex",
+      "!**/.agents",
+      "!**/node_modules",
+      "!**/graphify-out",
+      "!**/tsconfig.tsbuildinfo"
+    ]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noRedundantRoles": "off",
+        "noStaticElementInteractions": "off",
+        "noSvgWithoutTitle": "off",
+        "useKeyWithClickEvents": "off",
+        "useKeyWithMouseEvents": "off"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
+      },
+      "correctness": {
+        "noEmptyPattern": "off",
+        "useExhaustiveDependencies": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "off",
+        "noShadowRestrictedNames": "off",
+        "useIterableCallbackReturn": "off",
+        "noUnknownAtRules": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true
+  }
+}

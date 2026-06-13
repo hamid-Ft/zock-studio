@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import Matter from "matter-js";
 
 interface FallingTextProps {
@@ -28,26 +28,14 @@ const FallingText: React.FC<FallingTextProps> = ({
   const canvasContainerRef = useRef<HTMLDivElement | null>(null);
 
   const [effectStarted, setEffectStarted] = useState(false);
-
-  useEffect(() => {
-    if (!textRef.current) return;
-    const words = text.split(" ");
-
-    const newHTML = words
-      .map((word) => {
-        const isHighlighted = highlightWords.some((hw) => word.startsWith(hw));
-        return `<span
-          class="inline-block mx-[2px] select-none ${
-            isHighlighted ? "text-cyan-500 font-bold" : ""
-          }"
-        >
-          ${word}
-        </span>`;
-      })
-      .join(" ");
-
-    textRef.current.innerHTML = newHTML;
-  }, [text, highlightWords]);
+  const wordSegments = useMemo(
+    () =>
+      text.split(" ").map((word) => ({
+        text: word,
+        isHighlighted: highlightWords.some((hw) => word.startsWith(hw)),
+      })),
+    [text, highlightWords]
+  );
 
   useEffect(() => {
     if (trigger === "auto") {
@@ -71,8 +59,6 @@ const FallingText: React.FC<FallingTextProps> = ({
 
   useEffect(() => {
     if (!effectStarted) return;
-
-    debugger;
 
     const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } =
       Matter;
@@ -212,16 +198,16 @@ const FallingText: React.FC<FallingTextProps> = ({
       if (render.canvas && container) {
         container.removeChild(render.canvas); // Use the stored variable
       }
+      World.clear(engine.world, false);
+      Engine.clear(engine);
     };
-
-    World.clear(engine.world, false);
-    Engine.clear(engine);
   }, [
     effectStarted,
     gravity,
     wireframes,
     backgroundColor,
     mouseConstraintStiffness,
+    wordSegments,
   ]);
 
   const handleTrigger = () => {
@@ -244,7 +230,17 @@ const FallingText: React.FC<FallingTextProps> = ({
           fontSize,
           lineHeight: 1.4,
         }}
-      />
+      >
+        {wordSegments.map((segment, index) => (
+          <span
+            key={`${segment.text}-${index}`}
+            className={`inline-block mx-[2px] select-none ${segment.isHighlighted ? "text-cyan-500 font-bold" : ""}`}
+          >
+            {segment.text}
+            {index !== wordSegments.length - 1 ? " " : ""}
+          </span>
+        ))}
+      </div>
 
       <div className="absolute top-0 left-0 z-0" ref={canvasContainerRef} />
     </div>

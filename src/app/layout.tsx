@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import { siteConfig } from './seo';
+import { createSiteMetadata } from './seo';
+import { getRequestLocale } from './seo-server';
 import { LanguageSwitcher } from '@/components/i18n/language-switcher';
 import { LocaleHtmlSync } from '@/components/i18n/locale-html-sync';
-import { PageScrollbar } from '@/components/ui/page-scrollbar';
+import { isLocale } from '@/lib/i18n';
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -49,77 +50,37 @@ const iranYekan = localFont({
 	fallback: ['Tahoma', 'Arial', 'sans-serif'],
 });
 
-export const metadata: Metadata = {
-	metadataBase: new URL(siteConfig.url),
-	applicationName: siteConfig.name,
-	title: {
-		default: siteConfig.title,
-		template: `%s | ${siteConfig.name}`,
-	},
-	description: siteConfig.description,
-	keywords: siteConfig.keywords,
-	authors: [{ name: siteConfig.name, url: siteConfig.url }],
-	creator: siteConfig.creator,
-	publisher: siteConfig.name,
-	alternates: {
-		canonical: '/',
-	},
-	icons: {
-		icon: [
-			{ url: '/favicon.ico', sizes: 'any' },
-			{ url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
-		],
-		apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-	},
-	manifest: '/site.webmanifest',
-	openGraph: {
-		type: 'website',
-		locale: siteConfig.locale,
-		url: '/',
-		siteName: siteConfig.name,
-		title: siteConfig.title,
-		description: siteConfig.description,
-		images: [
-			{
-				url: '/icon-512.png',
-				width: 512,
-				height: 512,
-				alt: `${siteConfig.name} icon`,
-			},
-		],
-	},
-	twitter: {
-		card: 'summary',
-		title: siteConfig.title,
-		description: siteConfig.description,
-		images: ['/icon-512.png'],
-	},
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			'max-video-preview': -1,
-			'max-image-preview': 'large',
-			'max-snippet': -1,
-		},
-	},
-};
+export async function generateMetadata({
+	params,
+}: {
+	params?: Promise<{ locale?: string }>;
+} = {}): Promise<Metadata> {
+	const { locale: routeLocale } = params ? await params : {};
+	const locale = isLocale(routeLocale) ? routeLocale : await getRequestLocale();
 
-export default function RootLayout({
+	return createSiteMetadata(locale);
+}
+
+export default async function RootLayout({
 	children,
+	params,
 }: Readonly<{
 	children: React.ReactNode;
+	params?: Promise<{ locale?: string }>;
 }>) {
+	const { locale: routeLocale } = params ? await params : {};
+	const locale = isLocale(routeLocale) ? routeLocale : await getRequestLocale();
+
 	return (
-		<html lang="en" className="dark">
+		<html lang={locale} dir={locale === 'fa' ? 'rtl' : 'ltr'} className="dark">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} ${iranYekan.variable} ${tanhaFD.variable} antialiased`}>
+				<a href="#main-content" className="skip-link">
+					Skip to main content
+				</a>
 				<LocaleHtmlSync />
 				{children}
 				<LanguageSwitcher />
-				<PageScrollbar />
 			</body>
 		</html>
 	);
