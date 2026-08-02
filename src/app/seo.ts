@@ -1,64 +1,64 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import { defaultLocale, locales, type Locale } from '@/lib/i18n';
+import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://moon-studio.ir';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://moon-studio.ir";
 
 type LocalizedText = string | Record<Locale, string>;
 
 const ogLocales: Record<Locale, string> = {
-	en: 'en_US',
-	fa: 'fa_IR',
+	en: "en_US",
+	fa: "fa_IR",
 };
 
 const siteCopy: Record<Locale, { title: string; description: string }> = {
 	en: {
-		title: 'Moon Studio | Moonlancer Digital Product Team',
+		title: "Moonlancer | Connected Product Systems Studio",
 		description:
-			'Moon Studio is a Moonlancer software team building ecommerce, ERP, mobile, backend, fintech, map, dashboard, AI-assisted, and operational platforms for growing companies.',
+			"Moonlancer designs and builds connected commerce, ERP, fintech, field-operation, and decision systems for operations that cannot break.",
 	},
 	fa: {
-		title: 'Moon Studio | تیم محصول دیجیتال Moonlancer',
+		title: "Moonlancer | طراحی و توسعه نرم‌افزارهای عملیاتی",
 		description:
-			'Moon Studio تیم نرم‌افزاری Moonlancer برای ساخت فروش آنلاین، ERP، اپ موبایل، بک‌اند، فین‌تک، نقشه، داشبورد، رابط‌های AI و پلتفرم‌های عملیاتی شرکت‌های در حال رشد است.',
+			"Moonlancer نرم‌افزارهای فروش آنلاین، ERP، فین‌تک و عملیات میدانی را از تجربه‌ی کاربر تا سرویس‌های پشت محصول، یکپارچه طراحی و توسعه می‌دهد.",
 	},
 };
 
 export const siteConfig = {
-	name: 'Moon Studio',
-	alternateName: 'Moonlancer',
+	name: "Moon Studio",
+	alternateName: "Moonlancer",
 	url: siteUrl,
 	title: siteCopy.en.title,
 	description: siteCopy.en.description,
 	locale: ogLocales.en,
-	creator: 'Moon Studio',
+	creator: "Moon Studio",
 	keywords: [
-		'Moon Studio',
-		'Moonlancer',
-		'digital product studio',
-		'ecommerce software team',
-		'Next.js development',
-		'React development',
-		'backend development',
-		'mobile app development',
-		'ERP software',
-		'e-commerce platform',
-		'fintech software',
-		'admin dashboard',
-		'B2B software',
-		'Iran software team',
+		"Moon Studio",
+		"Moonlancer",
+		"digital product studio",
+		"ecommerce software team",
+		"Next.js development",
+		"React development",
+		"backend development",
+		"mobile app development",
+		"ERP software",
+		"e-commerce platform",
+		"fintech software",
+		"admin dashboard",
+		"B2B software",
+		"Iran software team",
 	],
 };
 
 export const profileRoutes = [
-	'/hamid-ft',
-	'/mohammadReza-Parsaeian',
-	'/mohammadreza-vasebi',
-	'/mehdi-alikhani',
-	'/omid-nikroo',
-	'/keyvan-moradkhani',
-	'/sepide-soltanpour',
-	'/iman-jafari',
+	"/hamid-ft",
+	"/mohammadReza-Parsaeian",
+	"/mohammadreza-vasebi",
+	"/mehdi-alikhani",
+	"/omid-nikroo",
+	"/keyvan-moradkhani",
+	"/sepide-soltanpour",
+	"/iman-jafari",
 ] as const;
 
 export type ProfileRoute = (typeof profileRoutes)[number];
@@ -71,109 +71,156 @@ type RouteMetadataDefinition = {
 };
 
 export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
-	'/hamid-ft': {
+	"/hamid-ft": {
 		title: {
-			en: 'Hamid FT Portfolio',
-			fa: 'پورتفولیوی حمید فتاحی',
+			en: "Hamid Fattahi — Product Interface Engineer",
+			fa: "حمید فتاحی — مهندس رابط‌های محصول",
 		},
 		description: {
-			en: 'Frontend and Next.js portfolio covering commerce, ERP, fintech, logistics, maps, admin panels, and operational product interfaces.',
-			fa: 'پورتفولیوی فرانت‌اند و Next.js با تمرکز بر فروش آنلاین، ERP، فین‌تک، لجستیک، نقشه، پنل ادمین و رابط‌های محصول عملیاتی.',
+			en: "Moonlancer system profile for frontend architecture across commerce, ERP, fintech, logistics, maps, and operational control surfaces.",
+			fa: "نقش حمید فتاحی در تیم Moonlancer: معماری فرانت‌اند برای فروش آنلاین، ERP، فین‌تک، لجستیک، نقشه و ابزارهای مدیریت عملیات.",
 		},
-		path: '/hamid-ft',
-		keywords: ['Hamid FT', 'frontend developer', 'Next.js portfolio', 'TypeScript', 'admin panels'],
-	},
-	'/mohammadReza-Parsaeian': {
-		title: {
-			en: 'MohammadReza Parsaeian Portfolio',
-			fa: 'پورتفولیوی محمدرضا پارسائیان',
-		},
-		description: {
-			en: 'Senior backend developer portfolio covering Golang, PHP, Laravel, Node.js, GPS tracking systems, payments, Redis, MongoDB, monitoring, and team leadership.',
-			fa: 'پورتفولیوی بک‌اند ارشد با تمرکز بر Golang، PHP، Laravel، Node.js، سیستم‌های GPS، پرداخت، Redis، MongoDB، مانیتورینگ و رهبری تیم.',
-		},
-		path: '/mohammadReza-Parsaeian',
-		keywords: ['MohammadReza Parsaeian', 'backend developer', 'Golang', 'Laravel', 'Node.js', 'payments'],
-	},
-	'/mohammadreza-vasebi': {
-		title: {
-			en: 'Mohammadreza Vasebi Portfolio',
-			fa: 'پورتفولیوی محمدرضا واسبی',
-		},
-		description: {
-			en: 'React Native mobile engineer portfolio covering cross-platform apps, Expo, TypeScript, maps, Firebase, Supabase, Socket.io, and mobile product delivery.',
-			fa: 'پورتفولیوی مهندس موبایل React Native با تمرکز بر اپ چندسکویی، Expo، TypeScript، نقشه، Firebase، Supabase، Socket.io و تحویل محصول موبایل.',
-		},
-		path: '/mohammadreza-vasebi',
-		keywords: ['Mohammadreza Vasebi', 'React Native', 'mobile engineer', 'Expo', 'TypeScript'],
-	},
-	'/mehdi-alikhani': {
-		title: {
-			en: 'Mehdi Alikhani Portfolio',
-			fa: 'پورتفولیوی مهدی علیخانی',
-		},
-		description: {
-			en: 'Backend developer portfolio focused on Laravel, Magento 2, GraphQL, microservices, payment gateways, message brokers, and Linux operations.',
-			fa: 'پورتفولیوی بک‌اند با تمرکز بر Laravel، Magento 2، GraphQL، میکروسرویس، درگاه پرداخت، message broker و عملیات لینوکس.',
-		},
-		path: '/mehdi-alikhani',
-		keywords: ['Mehdi Alikhani', 'backend developer', 'Laravel', 'Magento 2', 'GraphQL', 'microservices'],
-	},
-	'/omid-nikroo': {
-		title: {
-			en: 'Omid Nikroo Portfolio',
-			fa: 'پورتفولیوی امید نیکرو',
-		},
-		description: {
-			en: '.NET backend developer portfolio covering C#, ASP.NET Core, ERP systems, DDD, CQRS, SQL Server, MongoDB, Redis, SignalR, Docker, and database optimization.',
-			fa: 'پورتفولیوی بک‌اند .NET با تمرکز بر C#، ASP.NET Core، سیستم‌های ERP، DDD، CQRS، SQL Server، MongoDB، Redis، SignalR، Docker و بهینه‌سازی دیتابیس.',
-		},
-		path: '/omid-nikroo',
-		keywords: ['Omid Nikroo', '.NET backend developer', 'C#', 'ASP.NET Core', 'ERP', 'DDD', 'CQRS'],
-	},
-	'/keyvan-moradkhani': {
-		title: {
-			en: 'Keyvan Moradkhani Portfolio',
-			fa: 'پورتفولیوی کیوان مرادخانی',
-		},
-		description: {
-			en: 'Backend and full-stack developer portfolio covering Laravel, PHP, multi-vendor e-commerce, REST APIs, PostgreSQL, MySQL, Redis, Docker, React, and Tailwind CSS.',
-			fa: 'پورتفولیوی بک‌اند و فول‌استک با تمرکز بر Laravel، PHP، فروشگاه چندفروشنده، REST API، PostgreSQL، MySQL، Redis، Docker، React و Tailwind CSS.',
-		},
-		path: '/keyvan-moradkhani',
+		path: "/hamid-ft",
 		keywords: [
-			'Keyvan Moradkhani',
-			'backend developer',
-			'full-stack developer',
-			'Laravel',
-			'PHP',
-			'multi-vendor e-commerce',
-			'React',
+			"Hamid FT",
+			"frontend developer",
+			"Next.js portfolio",
+			"TypeScript",
+			"admin panels",
 		],
 	},
-	'/sepide-soltanpour': {
+	"/mohammadReza-Parsaeian": {
 		title: {
-			en: 'Sepide Soltanpour Portfolio',
-			fa: 'پورتفولیوی سپیده سلطان‌پور',
+			en: "MohammadReza Parsaeian — Backend Systems Lead",
+			fa: "محمدرضا پارسائیان — رهبر سامانه‌های بک‌اند",
 		},
 		description: {
-			en: 'Frontend developer portfolio covering AI-powered consultation platforms, Next.js, React, TypeScript, admin panels, CI/CD, Docker, Mapbox, and Chart.js.',
-			fa: 'پورتفولیوی فرانت‌اند با تمرکز بر پلتفرم‌های مشاوره مبتنی بر AI، Next.js، React، TypeScript، پنل ادمین، CI/CD، Docker، Mapbox و Chart.js.',
+			en: "Moonlancer system profile for distributed backend services, payments, GPS platforms, monitoring, delivery systems, and technical leadership.",
+			fa: "نقش محمدرضا پارسائیان در تیم Moonlancer: معماری سرویس‌های توزیع‌شده، پرداخت، GPS، مانیتورینگ و راهبری فنی بک‌اند.",
 		},
-		path: '/sepide-soltanpour',
-		keywords: ['Sepide Soltanpour', 'frontend developer', 'Next.js', 'React', 'AI platform', 'admin panels'],
+		path: "/mohammadReza-Parsaeian",
+		keywords: [
+			"MohammadReza Parsaeian",
+			"backend developer",
+			"Golang",
+			"Laravel",
+			"Node.js",
+			"payments",
+		],
 	},
-	'/iman-jafari': {
+	"/mohammadreza-vasebi": {
 		title: {
-			en: 'Iman Jafari Frontend Portfolio',
-			fa: 'پورتفولیوی فرانت‌اند ایمان جعفری',
+			en: "Mohammadreza Vasebi — Mobile Operations Engineer",
+			fa: "محمدرضا واسبی — مهندس عملیات موبایل",
 		},
 		description: {
-			en: 'Frontend developer portfolio covering React, Next.js, TypeScript, Tailwind, Shadcn UI, Docker, Drizzle, and interactive web experiences.',
-			fa: 'پورتفولیوی توسعه‌دهنده فرانت‌اند با تمرکز بر React، Next.js، TypeScript، Tailwind، Shadcn UI، Docker، Drizzle و تجربه‌های تعاملی وب.',
+			en: "Moonlancer system profile for cross-platform commerce, delivery, credit, QR, realtime, and map-based field applications.",
+			fa: "نقش محمدرضا واسبی در تیم Moonlancer: ساخت اپ‌های چندسکویی برای فروش، تحویل، اعتبار، QR و عملیات میدانی نقشه‌محور.",
 		},
-		path: '/iman-jafari',
-		keywords: ['frontend developer', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+		path: "/mohammadreza-vasebi",
+		keywords: [
+			"Mohammadreza Vasebi",
+			"React Native",
+			"mobile engineer",
+			"Expo",
+			"TypeScript",
+		],
+	},
+	"/mehdi-alikhani": {
+		title: {
+			en: "Mehdi Alikhani — Commerce Platform Engineer",
+			fa: "مهدی علیخانی — مهندس پلتفرم‌های تجاری",
+		},
+		description: {
+			en: "Moonlancer system profile for headless commerce, Laravel microservices, Magento, payments, messaging, testing, and Linux operations.",
+			fa: "نقش مهدی علیخانی در تیم Moonlancer: توسعه پلتفرم‌های Headless، سرویس‌های Laravel و Magento، پرداخت، پیام‌رسانی و عملیات Linux.",
+		},
+		path: "/mehdi-alikhani",
+		keywords: [
+			"Mehdi Alikhani",
+			"backend developer",
+			"Laravel",
+			"Magento 2",
+			"GraphQL",
+			"microservices",
+		],
+	},
+	"/omid-nikroo": {
+		title: {
+			en: "Omid Nikroo — ERP Backend Engineer",
+			fa: "امید نیکرو — مهندس بک‌اند ERP",
+		},
+		description: {
+			en: "Moonlancer system profile for .NET ERP services across warehouse, sales, distribution, HR, routing, realtime data, and databases.",
+			fa: "نقش امید نیکرو در تیم Moonlancer: توسعه سرویس‌های .NET برای ERP، انبار، فروش، پخش، منابع انسانی و برنامه‌ریزی مسیر.",
+		},
+		path: "/omid-nikroo",
+		keywords: [
+			"Omid Nikroo",
+			".NET backend developer",
+			"C#",
+			"ASP.NET Core",
+			"ERP",
+			"DDD",
+			"CQRS",
+		],
+	},
+	"/keyvan-moradkhani": {
+		title: {
+			en: "Keyvan Moradkhani — Commerce Backend Engineer",
+			fa: "کیوان مرادخانی — مهندس بک‌اند تجارت",
+		},
+		description: {
+			en: "Moonlancer system profile for multi-vendor commerce, REST APIs, catalog rules, tax automation, promotions, and operational tools.",
+			fa: "نقش کیوان مرادخانی در تیم Moonlancer: توسعه بک‌اند فروشگاه‌های چندفروشنده، REST API، کاتالوگ، قیمت‌گذاری و ابزارهای مدیریت فروش.",
+		},
+		path: "/keyvan-moradkhani",
+		keywords: [
+			"Keyvan Moradkhani",
+			"backend developer",
+			"full-stack developer",
+			"Laravel",
+			"PHP",
+			"multi-vendor e-commerce",
+			"React",
+		],
+	},
+	"/sepide-soltanpour": {
+		title: {
+			en: "Sepide Soltanpour — Data & AI Interface Engineer",
+			fa: "سپیده سلطان‌پور — مهندس رابط‌های داده و AI",
+		},
+		description: {
+			en: "Moonlancer system profile for data-heavy admin products, AI consultation flows, forms, charts, maps, and frontend delivery.",
+			fa: "نقش سپیده سلطان‌پور در تیم Moonlancer: ساخت پنل‌های داده‌محور، تجربه‌های هوش مصنوعی، فرم‌های پیچیده، نمودار و نقشه.",
+		},
+		path: "/sepide-soltanpour",
+		keywords: [
+			"Sepide Soltanpour",
+			"frontend developer",
+			"Next.js",
+			"React",
+			"AI platform",
+			"admin panels",
+		],
+	},
+	"/iman-jafari": {
+		title: {
+			en: "Iman Jafari — Frontend Delivery Engineer",
+			fa: "ایمان جعفری — مهندس تحویل فرانت‌اند",
+		},
+		description: {
+			en: "Moonlancer system profile for React and Next.js interfaces, component systems, product forms, state, and responsive experiences.",
+			fa: "نقش ایمان جعفری در تیم Moonlancer: پیاده‌سازی رابط‌های React و Next.js، کامپوننت‌های مشترک، فرم‌های محصول و تجربه‌های واکنش‌گرا.",
+		},
+		path: "/iman-jafari",
+		keywords: [
+			"frontend developer",
+			"React",
+			"Next.js",
+			"TypeScript",
+			"Tailwind CSS",
+		],
 	},
 };
 
@@ -181,39 +228,50 @@ export function isProfileRoute(path: string): path is ProfileRoute {
 	return (profileRoutes as readonly string[]).includes(path);
 }
 
-export function createProfileMetadata(path: ProfileRoute, locale: Locale = defaultLocale): Metadata {
+export function createProfileMetadata(
+	path: ProfileRoute,
+	locale: Locale = defaultLocale,
+): Metadata {
 	return createRouteMetadata({
 		...profileMetadata[path],
 		locale,
 	});
 }
 
-export function absoluteUrl(path = '/') {
+export function absoluteUrl(path = "/") {
 	return new URL(path, siteConfig.url).toString();
 }
 
 export function localizedPath(path: string, locale: Locale) {
-	const normalizedPath = path === '/' ? '' : path.startsWith('/') ? path : `/${path}`;
+	if (path === "/") {
+		return locale === "en" ? "/" : "/fa";
+	}
+
+	const normalizedPath =
+		path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
 
 	return `/${locale}${normalizedPath}`;
 }
 
 export function createLanguageAlternates(path: string) {
 	return {
-		en: localizedPath(path, 'en'),
-		fa: localizedPath(path, 'fa'),
-		'x-default': path,
+		en: localizedPath(path, "en"),
+		fa: localizedPath(path, "fa"),
+		"x-default": path,
 	};
 }
 
 export function createAbsoluteLanguageAlternates(path: string) {
 	return Object.fromEntries(
-		Object.entries(createLanguageAlternates(path)).map(([locale, href]) => [locale, absoluteUrl(href)])
+		Object.entries(createLanguageAlternates(path)).map(([locale, href]) => [
+			locale,
+			absoluteUrl(href),
+		]),
 	);
 }
 
 function resolveLocalizedText(value: LocalizedText, locale: Locale) {
-	if (typeof value === 'string') {
+	if (typeof value === "string") {
 		return value;
 	}
 
@@ -221,12 +279,14 @@ function resolveLocalizedText(value: LocalizedText, locale: Locale) {
 }
 
 function alternateLocales(locale: Locale) {
-	return locales.filter((item) => item !== locale).map((item) => ogLocales[item]);
+	return locales
+		.filter((item) => item !== locale)
+		.map((item) => ogLocales[item]);
 }
 
 export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 	const copy = siteCopy[locale];
-	const canonical = localizedPath('/', locale);
+	const canonical = localizedPath("/", locale);
 
 	return {
 		metadataBase: new URL(siteConfig.url),
@@ -242,18 +302,20 @@ export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 		publisher: siteConfig.name,
 		alternates: {
 			canonical,
-			languages: createLanguageAlternates('/'),
+			languages: createLanguageAlternates("/"),
 		},
 		icons: {
 			icon: [
-				{ url: '/favicon.ico', sizes: 'any' },
-				{ url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+				{ url: "/favicon.ico", sizes: "any" },
+				{ url: "/icon-512.png", type: "image/png", sizes: "512x512" },
 			],
-			apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+			apple: [
+				{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+			],
 		},
-		manifest: '/site.webmanifest',
+		manifest: "/site.webmanifest",
 		openGraph: {
-			type: 'website',
+			type: "website",
 			locale: ogLocales[locale],
 			alternateLocale: alternateLocales(locale),
 			url: canonical,
@@ -262,7 +324,7 @@ export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 			description: copy.description,
 			images: [
 				{
-					url: '/icon-512.png',
+					url: "/icon-512.png",
 					width: 512,
 					height: 512,
 					alt: `${siteConfig.name} icon`,
@@ -270,10 +332,10 @@ export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 			],
 		},
 		twitter: {
-			card: 'summary',
+			card: "summary",
 			title: copy.title,
 			description: copy.description,
-			images: ['/icon-512.png'],
+			images: ["/icon-512.png"],
 		},
 		robots: {
 			index: true,
@@ -281,9 +343,9 @@ export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 			googleBot: {
 				index: true,
 				follow: true,
-				'max-video-preview': -1,
-				'max-image-preview': 'large',
-				'max-snippet': -1,
+				"max-video-preview": -1,
+				"max-image-preview": "large",
+				"max-snippet": -1,
 			},
 		},
 	};
@@ -319,12 +381,12 @@ export function createRouteMetadata({
 			description: localizedDescription,
 			url: canonical,
 			siteName: siteConfig.name,
-			type: 'profile',
+			type: "profile",
 			locale: ogLocales[locale],
 			alternateLocale: alternateLocales(locale),
 			images: [
 				{
-					url: '/icon-512.png',
+					url: "/icon-512.png",
 					width: 512,
 					height: 512,
 					alt: `${siteConfig.name} icon`,
@@ -332,10 +394,10 @@ export function createRouteMetadata({
 			],
 		},
 		twitter: {
-			card: 'summary',
+			card: "summary",
 			title: localizedTitle,
 			description: localizedDescription,
-			images: ['/icon-512.png'],
+			images: ["/icon-512.png"],
 		},
 	};
 }
