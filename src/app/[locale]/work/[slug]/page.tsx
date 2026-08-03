@@ -5,15 +5,13 @@ import { cache } from "react";
 import { StudioFooter, StudioHeader } from "@/app/_components/studio-chrome";
 import { createRouteMetadata } from "@/app/seo";
 import { JsonLd } from "@/components/seo/json-ld";
-import {
-	getPublishedCaseSlugs,
-	loadPublishedCaseStudy,
-} from "@/content/case-studies";
+import { loadPublishedCaseStudy } from "@/content/case-studies";
 import { createCaseStudyJsonLd } from "@/lib/structured-data";
-import { isLocale, locales, type Locale } from "@/lib/i18n";
+import { isLocale, type Locale } from "@/lib/i18n";
 
 type CasePageProps = { params: Promise<{ locale: string; slug: string }> };
 const loadCase = cache(loadPublishedCaseStudy);
+export const dynamic = "force-dynamic";
 
 async function getParams(
 	params: CasePageProps["params"],
@@ -21,12 +19,6 @@ async function getParams(
 	const { locale, slug } = await params;
 	if (!isLocale(locale)) notFound();
 	return { locale, slug };
-}
-
-export function generateStaticParams() {
-	return locales.flatMap((locale) =>
-		getPublishedCaseSlugs().map((slug) => ({ locale, slug })),
-	);
 }
 
 export async function generateMetadata({
