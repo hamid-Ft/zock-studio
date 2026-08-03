@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { StudioLanding } from "../_components/studio-landing";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
@@ -27,9 +27,5 @@ export default async function LocalizedHomePage({
 	params,
 }: LocalizedPageProps) {
 	const locale = await resolveLocale(params);
-	if (locale === "en") {
-		redirect("/");
-	}
-
 	return <StudioLanding locale={locale} />;
 }

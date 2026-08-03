@@ -7,7 +7,7 @@ export const memberSlugs = [
 	"hamid-ft",
 	"sepide-soltanpour",
 	"mohammadreza-vasebi",
-	"mohammadReza-Parsaeian",
+	"mohammadreza-parsaeian",
 	"mehdi-alikhani",
 	"keyvan-moradkhani",
 	"omid-nikroo",
@@ -177,7 +177,7 @@ export const members: MemberProfile[] = [
 		},
 	},
 	{
-		slug: "mohammadReza-Parsaeian",
+		slug: "mohammadreza-parsaeian",
 		index: "04",
 		name: "MohammadReza Parsaeian",
 		role: { en: "Backend Systems Lead", fa: "راهبر فنی بک‌اند" },

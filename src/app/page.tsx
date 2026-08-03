@@ -1,5 +1,5 @@
-import { StudioLanding } from "./_components/studio-landing";
+import { redirect } from "next/navigation";
 
 export default function HomePage() {
-	return <StudioLanding locale="en" />;
+	redirect("/en");
 }

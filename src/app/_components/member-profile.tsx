@@ -2,12 +2,8 @@ import { ArrowLeft, ArrowRight, ArrowUpLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import {
-	getMember,
-	members,
-	studioCopy,
-	type MemberSlug,
-} from "@/content/studio-content";
+import { getMember, members, type MemberSlug } from "@/content/studio-content";
+import { getSiteCopy } from "@/content/moonlancer-content";
 import { localizeDigits, type Locale } from "@/lib/i18n";
 import { Reveal } from "./reveal";
 import { StudioFooter, StudioHeader } from "./studio-chrome";
@@ -20,12 +16,12 @@ export function MemberSystemProfile({
 	slug: MemberSlug;
 }) {
 	const member = getMember(slug);
-	const copy = studioCopy[locale];
+	const copy = getSiteCopy(locale);
 	const currentIndex = members.findIndex((item) => item.slug === slug);
 	const previous =
 		members[(currentIndex - 1 + members.length) % members.length];
 	const next = members[(currentIndex + 1) % members.length];
-	const home = locale === "en" ? "/" : "/fa";
+	const home = `/${locale}`;
 	const BackIcon = locale === "fa" ? ArrowRight : ArrowLeft;
 	const NextIcon = locale === "fa" ? ArrowLeft : ArrowRight;
 	const DiagonalArrow = locale === "fa" ? ArrowUpLeft : ArrowUpRight;
@@ -168,7 +164,7 @@ export function MemberSystemProfile({
 					</Link>
 				</nav>
 			</main>
-			<StudioFooter locale={locale} profile={slug} />
+			<StudioFooter locale={locale} />
 		</div>
 	);
 }

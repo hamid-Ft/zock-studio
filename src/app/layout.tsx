@@ -4,6 +4,7 @@ import "./globals.css";
 import { createSiteMetadata } from "./seo";
 import { getRequestLocale } from "./seo-server";
 import { LocaleHtmlSync } from "@/components/i18n/locale-html-sync";
+import { UmamiAnalytics } from "@/components/analytics/umami-analytics";
 import { isLocale } from "@/lib/i18n";
 
 const geistSans = localFont({
@@ -81,6 +82,7 @@ export default async function RootLayout({
 				</a>
 				<LocaleHtmlSync />
 				{children}
+				<UmamiAnalytics />
 			</body>
 		</html>
 	);

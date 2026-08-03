@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://moon-studio.ir";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://moonlancer.ir";
 
 type LocalizedText = string | Record<Locale, string>;
 
@@ -25,18 +25,19 @@ const siteCopy: Record<Locale, { title: string; description: string }> = {
 };
 
 export const siteConfig = {
-	name: "Moon Studio",
-	alternateName: "Moonlancer",
+	name: "Moonlancer",
+	alternateName: "Moonlancer Studio",
 	url: siteUrl,
 	title: siteCopy.en.title,
 	description: siteCopy.en.description,
 	locale: ogLocales.en,
-	creator: "Moon Studio",
+	creator: "Moonlancer",
 	keywords: [
-		"Moon Studio",
 		"Moonlancer",
-		"digital product studio",
-		"ecommerce software team",
+		"retail software studio",
+		"connected commerce systems",
+		"POS integration",
+		"ERP integration",
 		"Next.js development",
 		"React development",
 		"backend development",
@@ -52,7 +53,7 @@ export const siteConfig = {
 
 export const profileRoutes = [
 	"/hamid-ft",
-	"/mohammadReza-Parsaeian",
+	"/mohammadreza-parsaeian",
 	"/mohammadreza-vasebi",
 	"/mehdi-alikhani",
 	"/omid-nikroo",
@@ -89,7 +90,7 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 			"admin panels",
 		],
 	},
-	"/mohammadReza-Parsaeian": {
+	"/mohammadreza-parsaeian": {
 		title: {
 			en: "MohammadReza Parsaeian — Backend Systems Lead",
 			fa: "محمدرضا پارسائیان — رهبر سامانه‌های بک‌اند",
@@ -98,7 +99,7 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 			en: "Moonlancer system profile for distributed backend services, payments, GPS platforms, monitoring, delivery systems, and technical leadership.",
 			fa: "نقش محمدرضا پارسائیان در تیم Moonlancer: معماری سرویس‌های توزیع‌شده، پرداخت، GPS، مانیتورینگ و راهبری فنی بک‌اند.",
 		},
-		path: "/mohammadReza-Parsaeian",
+		path: "/mohammadreza-parsaeian",
 		keywords: [
 			"MohammadReza Parsaeian",
 			"backend developer",
@@ -235,6 +236,7 @@ export function createProfileMetadata(
 	return createRouteMetadata({
 		...profileMetadata[path],
 		locale,
+		type: "profile",
 	});
 }
 
@@ -244,7 +246,7 @@ export function absoluteUrl(path = "/") {
 
 export function localizedPath(path: string, locale: Locale) {
 	if (path === "/") {
-		return locale === "en" ? "/" : "/fa";
+		return `/${locale}`;
 	}
 
 	const normalizedPath =
@@ -257,7 +259,7 @@ export function createLanguageAlternates(path: string) {
 	return {
 		en: localizedPath(path, "en"),
 		fa: localizedPath(path, "fa"),
-		"x-default": path,
+		"x-default": localizedPath(path, defaultLocale),
 	};
 }
 
@@ -301,8 +303,8 @@ export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 		creator: siteConfig.creator,
 		publisher: siteConfig.name,
 		alternates: {
-			canonical,
-			languages: createLanguageAlternates("/"),
+			canonical: absoluteUrl(canonical),
+			languages: createAbsoluteLanguageAlternates("/"),
 		},
 		icons: {
 			icon: [
@@ -318,7 +320,7 @@ export function createSiteMetadata(locale: Locale = defaultLocale): Metadata {
 			type: "website",
 			locale: ogLocales[locale],
 			alternateLocale: alternateLocales(locale),
-			url: canonical,
+			url: absoluteUrl(canonical),
 			siteName: siteConfig.name,
 			title: copy.title,
 			description: copy.description,
@@ -357,12 +359,14 @@ export function createRouteMetadata({
 	path,
 	keywords = [],
 	locale = defaultLocale,
+	type = "website",
 }: {
 	title: LocalizedText;
 	description: LocalizedText;
 	path: string;
 	keywords?: string[];
 	locale?: Locale;
+	type?: "website" | "profile" | "article";
 }): Metadata {
 	const localizedTitle = resolveLocalizedText(title, locale);
 	const localizedDescription = resolveLocalizedText(description, locale);
@@ -373,15 +377,15 @@ export function createRouteMetadata({
 		description: localizedDescription,
 		keywords: [...siteConfig.keywords, ...keywords],
 		alternates: {
-			canonical,
-			languages: createLanguageAlternates(path),
+			canonical: absoluteUrl(canonical),
+			languages: createAbsoluteLanguageAlternates(path),
 		},
 		openGraph: {
 			title: localizedTitle,
 			description: localizedDescription,
-			url: canonical,
+			url: absoluteUrl(canonical),
 			siteName: siteConfig.name,
-			type: "profile",
+			type,
 			locale: ogLocales[locale],
 			alternateLocale: alternateLocales(locale),
 			images: [

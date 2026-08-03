@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Languages } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { Languages } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-import { getLocaleFromPathname, localeLabels, locales, stripLocaleFromPathname, withLocalePath } from '@/lib/i18n';
+import {
+	getLocaleFromPathname,
+	localeLabels,
+	locales,
+	stripLocaleFromPathname,
+	withLocalePath,
+} from "@/lib/i18n";
 
 export function LanguageSwitcher() {
 	const pathname = usePathname();
@@ -12,17 +18,19 @@ export function LanguageSwitcher() {
 	const cleanPath = stripLocaleFromPathname(pathname);
 
 	return (
-		<nav aria-label="Language" className="language-switcher">
+		<div className="language-switcher">
+			<span className="sr-only">Language selection</span>
 			<Languages className="size-4 text-cyan-200" aria-hidden="true" />
 			{locales.map((item) => (
 				<Link
 					key={item}
 					href={withLocalePath(cleanPath, item)}
-					aria-current={item === locale ? 'true' : undefined}
-					className="language-switcher__link">
+					aria-current={item === locale ? "page" : undefined}
+					className="language-switcher__link"
+				>
 					{localeLabels[item]}
 				</Link>
 			))}
-		</nav>
+		</div>
 	);
 }
