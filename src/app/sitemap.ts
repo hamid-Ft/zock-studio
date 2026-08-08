@@ -10,7 +10,6 @@ import {
 } from "./seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const now = new Date();
 	const routes = [
 		"/",
 		"/contact",
@@ -23,9 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	return routes.flatMap((route) =>
 		locales.map((locale) => ({
 			url: absoluteUrl(localizedPath(route, locale)),
-			lastModified: now,
-			changeFrequency: route === "/" ? "weekly" : "monthly",
-			priority: route === "/" ? 1 : route === "/contact" ? 0.9 : 0.7,
 			alternates: {
 				languages: createAbsoluteLanguageAlternates(route),
 			},

@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export default function LegacyOmidProfile() {
-	redirect("/en/omid-nikroo");
+	permanentRedirect("/en/omid-nikroo");
 }

@@ -14,9 +14,11 @@ The public entry points are `/en` and `/fa`; `/` redirects to `/en`.
 
 ## Production configuration
 
-Set every variable below before release:
+Set every integration variable below before release. The production canonical
+origin is fixed to `https://moonlancer.ir`; `NEXT_PUBLIC_SITE_URL` is only an
+optional local/preview override so a stale deployment value cannot rewrite the
+sitemap, canonical links, or hreflang URLs.
 
-- `NEXT_PUBLIC_SITE_URL`: canonical origin, normally `https://moonlancer.ir`.
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`: Cloudflare Turnstile keys for the intake form.
 - `MOONLANCER_LEADS_WEBHOOK_URL`: the single commercial-owner workflow that stores and routes qualified inquiries.
 - `MOONLANCER_LEADS_WEBHOOK_TOKEN`: optional bearer token for that workflow.

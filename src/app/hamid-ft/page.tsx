@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export default function LegacyHamidProfile() {
-	redirect("/en/hamid-ft");
+	permanentRedirect("/en/hamid-ft");
 }

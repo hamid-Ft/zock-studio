@@ -2,7 +2,15 @@ import type { Metadata } from "next";
 
 import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://moonlancer.ir";
+const productionSiteUrl = "https://moonlancer.ir";
+
+// Search engines must always receive the public production origin. Allowing a
+// stale server environment variable to override this in production can move
+// every canonical, hreflang entry, and sitemap URL to the wrong domain.
+const siteUrl =
+	process.env.NODE_ENV === "production"
+		? productionSiteUrl
+		: process.env.NEXT_PUBLIC_SITE_URL || productionSiteUrl;
 
 type LocalizedText = string | Record<Locale, string>;
 
