@@ -77,7 +77,7 @@ function DockItem({
   const targetSize = useTransform(
     mouseDistance,
     [-distance, 0, distance],
-    [baseItemSize, magnification, baseItemSize]
+    [baseItemSize, magnification, baseItemSize],
   );
   const size = useSpring(targetSize, spring);
 
@@ -99,7 +99,7 @@ function DockItem({
       aria-haspopup="true"
     >
       {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement, { isHovered })
+        cloneElement(child as React.ReactElement),
       )}
     </motion.div>
   );
@@ -162,7 +162,7 @@ export default function Dock({
   const maxHeight = useMemo(
     () => Math.max(dockHeight, magnification + magnification / 2 + 4),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [magnification]
+    [magnification],
   );
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
@@ -181,7 +181,7 @@ export default function Dock({
           isHovered.set(0);
           mouseX.set(Infinity);
         }}
-        className={`${className}fixed z-40 bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border border-zinc-900 pb-2 px-4`}
+        className={`${className} absolute z-40 bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-zinc-900 pb-2 px-4`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"

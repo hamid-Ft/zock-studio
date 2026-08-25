@@ -1,13 +1,15 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { CalendarIcon, HomeIcon, MailIcon } from 'lucide-react';
 
+import { LocaleLink } from '@/components/i18n/locale-link';
 import { cn } from '@/lib/utils';
 import { Dock, DockIcon } from '@/components/ui/dock';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { getLocaleFromPathname } from '@/lib/i18n';
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -55,7 +57,7 @@ const Icons = {
 
 const DATA = {
 	navbar: [
-		{ href: '#', icon: HomeIcon, label: 'Home' },
+		{ href: '#', icon: HomeIcon, label: { en: 'Home', fa: 'خانه' } },
 		// { href: '#', icon: PencilIcon, label: 'Other Pages' },
 	],
 	contact: {
@@ -85,26 +87,28 @@ const DATA = {
 };
 
 export function DockMenu() {
+	const locale = getLocaleFromPathname(usePathname());
+
 	return (
-		<div className="fixed bottom-10 right-0 left-0 z-50">
+		<div className="fixed inset-x-4 z-50 bottom-10 px-4 md:inset-x-6">
 			<TooltipProvider>
 				<Dock direction="middle">
 					{DATA.navbar.map((item) => (
-						<DockIcon key={item.label}>
+						<DockIcon key={item.href}>
 							<Tooltip>
 								<TooltipTrigger asChild>
-									<Link
+									<LocaleLink
 										href={item.href}
-										aria-label={item.label}
+										aria-label={item.label[locale]}
 										className={cn(
 											buttonVariants({ variant: 'ghost', size: 'default' }),
 											'size-12 rounded-full'
 										)}>
 										<item.icon className="size-4" />
-									</Link>
+									</LocaleLink>
 								</TooltipTrigger>
 								<TooltipContent>
-									<p>{item.label}</p>
+									<p>{item.label[locale]}</p>
 								</TooltipContent>
 							</Tooltip>
 						</DockIcon>
@@ -114,7 +118,7 @@ export function DockMenu() {
 						<DockIcon key={name}>
 							<Tooltip>
 								<TooltipTrigger asChild>
-									<Link
+									<LocaleLink
 										href={social.url}
 										aria-label={social.name}
 										className={cn(
@@ -122,7 +126,7 @@ export function DockMenu() {
 											'size-12 rounded-full'
 										)}>
 										<social.icon className="size-4" />
-									</Link>
+									</LocaleLink>
 								</TooltipTrigger>
 								<TooltipContent>
 									<p>{name}</p>

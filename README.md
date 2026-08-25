@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Moonlancer
 
-## Getting Started
+The bilingual public site for Moonlancer, a founder-led studio focused on connected retail, ERP, inventory, POS, payment, reconciliation, and reporting systems.
 
-First, run the development server:
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The public entry points are `/en` and `/fa`; `/` redirects to `/en`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set every integration variable below before release. The production canonical
+origin is fixed to `https://moonlancer.ir`; `NEXT_PUBLIC_SITE_URL` is only an
+optional local/preview override so a stale deployment value cannot rewrite the
+sitemap, canonical links, or hreflang URLs.
 
-## Learn More
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`: Cloudflare Turnstile keys for the intake form.
+- `MOONLANCER_LEADS_WEBHOOK_URL`: the single commercial-owner workflow that stores and routes qualified inquiries.
+- `MOONLANCER_LEADS_WEBHOOK_TOKEN`: optional bearer token for that workflow.
+- `NEXT_PUBLIC_UMAMI_SCRIPT_URL` and `NEXT_PUBLIC_UMAMI_WEBSITE_ID`: the separately hosted Umami analytics endpoint and site identifier.
 
-To learn more about Next.js, take a look at the following resources:
+The lead webhook receives the versioned payload documented by `src/app/api/leads/route.ts`. The downstream workflow is responsible for assigning the commercial owner, recording the next action, sending the submitter a copy or summary, notifying the owner, enforcing workflow-level rate limits, and applying the retention schedule in the privacy notice.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Production intentionally disables submission when Turnstile is not configured. Umami stays unloaded when either analytics variable is missing and no personal intake fields are sent as analytics properties.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Release checks
 
-## Deploy on Vercel
+```bash
+pnpm exec tsc --noEmit --incremental false
+pnpm lint
+pnpm build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Case-study routes are generated only for entries marked `published: true` in `src/content/case-studies.ts`. Editorial shells remain non-public until their claims and assets are approved.

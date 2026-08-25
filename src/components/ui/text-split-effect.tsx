@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 export default function SplitText({ text = 'text to split', className }: { text: string; className?: string }) {
 	const [activeIndex, setIndex] = useState<number>();
-	const timer = useRef<NodeJS.Timeout>();
+	const timer = useRef<NodeJS.Timeout>(null);
 
 	const letterClassName =
 		'inline h-1/2 select-none overflow-y-hidden leading-none transition-all duration-300 ease-out whitespace-pre';

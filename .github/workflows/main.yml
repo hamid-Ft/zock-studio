@@ -1,0 +1,21 @@
+name: Deploy to VPS
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Pull latest code
+        run: |
+          cd /srv/moon-studio
+          git fetch origin main
+          git checkout main
+          git pull
+
+      - name: Rebuild & restart (no orphans)
+        run: |
+          cd /srv/moon-studio
+          docker compose build --no-cache app
+          docker compose up -d

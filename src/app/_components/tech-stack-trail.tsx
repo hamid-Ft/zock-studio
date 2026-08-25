@@ -1,6 +1,5 @@
 'use client';
 import ImageMouseTrail from '@/components/ui/mouse-trail-image';
-import React from 'react';
 
 const images = [
 	'/svg/adobe.svg',

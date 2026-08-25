@@ -1,6 +1,5 @@
 'use client';
 import { Vortex } from '@/components/ui/vortex';
-import React from 'react';
 
 export function ComingSoon() {
 	return (
@@ -12,7 +11,7 @@ export function ComingSoon() {
 					COMING SOON
 				</h2>
 				<p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
-					this site is under construction. I&apos;m working on it and will be ready soon.
+					this site is under construction. We&apos;re working on it and will be ready soon.
 				</p>
 			</Vortex>
 		</div>
