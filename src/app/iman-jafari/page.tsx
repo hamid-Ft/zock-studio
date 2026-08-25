@@ -1,5 +1,5 @@
-import { permanentRedirect } from "next/navigation";
+import Portfolio from "./_portfolio";
 
-export default function LegacyImanProfile() {
-  permanentRedirect("/en/iman-jafari");
+export default function ImanJafariPage() {
+  return <Portfolio />;
 }
