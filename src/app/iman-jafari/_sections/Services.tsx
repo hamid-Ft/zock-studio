@@ -1,3 +1,4 @@
+"use client";
 import { useRef } from "react";
 import AnimatedHeaderSection from "../_components/AnimatedHeaderSection";
 import { servicesData } from "../_constants";
