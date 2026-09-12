@@ -84,7 +84,7 @@ const DATA = {
 			},
 		},
 	},
-};
+} as const;
 
 export function DockMenu() {
 	const locale = getLocaleFromPathname(usePathname());

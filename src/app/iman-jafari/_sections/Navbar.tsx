@@ -1,8 +1,22 @@
 import { useEffect, useRef, useState } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { socials } from "../_constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Link } from "react-scroll";
+import { Link as LegacyScrollLink } from "react-scroll";
+
+type ScrollLinkProps = {
+	children: ReactNode;
+	className?: string;
+	to: string;
+	smooth?: boolean | string;
+	offset?: number;
+	duration?: number | ((distance: number) => number);
+};
+
+// @types/react-scroll@3 uses a React 0.14 ClassicComponentClass declaration.
+// The runtime component supports modern React; adapt its public props locally.
+const ScrollLink = LegacyScrollLink as unknown as ComponentType<ScrollLinkProps>;
 
 const Navbar = () => {
 	const navRef = useRef<HTMLElement>(null);
@@ -110,7 +124,7 @@ const Navbar = () => {
 									linksRef.current[index] = el;
 								}}
 							>
-								<Link
+								<ScrollLink
 									className="transition-all duration-300 cursor-pointer hover:text-white"
 									to={`${section}`}
 									smooth
@@ -118,7 +132,7 @@ const Navbar = () => {
 									duration={2000}
 								>
 									{section}
-								</Link>
+								</ScrollLink>
 							</div>
 						)
 					)}

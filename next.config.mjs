@@ -57,6 +57,7 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	typedRoutes: true,
 	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 	async headers() {
 		return [
@@ -82,21 +83,6 @@ const nextConfig = {
 			},
 		],
 		unoptimized: true,
-	},
-	webpack(config) {
-		config.module.rules.push({
-			test: /\.glb$/,
-			use: {
-				loader: "file-loader",
-				options: {
-					publicPath: "/_next/static/models/",
-					outputPath: "static/models/",
-					name: "[name].[hash].[ext]",
-				},
-			},
-		});
-
-		return config;
 	},
 };
 

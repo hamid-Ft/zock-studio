@@ -1,4 +1,5 @@
 import { ArrowUpLeft, ArrowUpRight, Menu } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
@@ -10,8 +11,8 @@ import {
 } from "@/content/moonlancer-content";
 import type { Locale } from "@/lib/i18n";
 
-function localizedHome(locale: Locale) {
-	return `/${locale}`;
+function localizedHome(locale: Locale): Route {
+	return `/${locale}` as Route;
 }
 
 export function StudioHeader({
@@ -25,7 +26,7 @@ export function StudioHeader({
 	const home = localizedHome(locale);
 	const DiagonalArrow = locale === "fa" ? ArrowUpLeft : ArrowUpRight;
 	const sectionLink = (section: string) =>
-		onHomepage ? `#${section}` : `${home}#${section}`;
+		(onHomepage ? `#${section}` : `${home}#${section}`) as Route;
 
 	return (
 		<header className="site-header">

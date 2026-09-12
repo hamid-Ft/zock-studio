@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, ArrowUpLeft, ArrowUpRight } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,9 @@ export function MemberSystemProfile({
 	const previous =
 		members[(currentIndex - 1 + members.length) % members.length];
 	const next = members[(currentIndex + 1) % members.length];
-	const home = `/${locale}`;
+	const home = `/${locale}` as Route;
+	const teamHref = `${home}#team` as Route;
+	const intakeHref = `${home}#intake` as Route;
 	const BackIcon = locale === "fa" ? ArrowRight : ArrowLeft;
 	const NextIcon = locale === "fa" ? ArrowLeft : ArrowRight;
 	const DiagonalArrow = locale === "fa" ? ArrowUpLeft : ArrowUpRight;
@@ -35,7 +38,7 @@ export function MemberSystemProfile({
 			<main id="main-content">
 				<section className="profile-hero" aria-labelledby="profile-title">
 					<div className="site-shell">
-						<Link href={`${home}#team`} className="text-link">
+						<Link href={teamHref} className="text-link">
 							<BackIcon aria-hidden="true" />
 							{copy.profile.team}
 						</Link>
@@ -162,7 +165,7 @@ export function MemberSystemProfile({
 							</h2>
 						</div>
 						<Button asChild size="lg">
-							<Link href={`${home}#intake`}>
+							<Link href={intakeHref}>
 								{copy.profile.cta}
 								<DiagonalArrow data-icon="inline-end" aria-hidden="true" />
 							</Link>

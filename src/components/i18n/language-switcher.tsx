@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Languages } from "lucide-react";
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
 
 import {
@@ -24,7 +25,7 @@ export function LanguageSwitcher() {
 			{locales.map((item) => (
 				<Link
 					key={item}
-					href={withLocalePath(cleanPath, item)}
+					href={withLocalePath(cleanPath, item) as Route}
 					aria-current={item === locale ? "page" : undefined}
 					className="language-switcher__link"
 				>

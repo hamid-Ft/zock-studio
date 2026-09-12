@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Marquee from "../_components/Marquee";
+import Marquee from "../_components/marquee";
 import squareIcon from "@iconify-icons/material-symbols-light/square";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";

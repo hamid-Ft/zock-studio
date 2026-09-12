@@ -18,7 +18,7 @@ const dockItems = [
 	{ href: '/#services', icon: Rocket, label: { en: 'Services', fa: 'خدمات' } },
 	{ href: '/#software', icon: Layers3, label: { en: 'Coverage', fa: 'پوشش نیازها' } },
 	{ href: '/#process', icon: BriefcaseBusiness, label: { en: 'Process', fa: 'فرایند' } },
-];
+] as const;
 
 export function TeamDock() {
 	const locale = getLocaleFromPathname(usePathname());
