@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 
 import { MemberSystemProfile } from "@/app/_components/member-profile";
+import { FreelanceProfile } from "@/app/_components/freelance-profile";
 import { createProfileMetadata, isProfileRoute } from "@/app/seo";
 import { isMemberSlug, memberSlugs } from "@/content/studio-content";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
@@ -50,5 +51,9 @@ export default async function LocalizedProfilePage({
 	params,
 }: LocalizedProfileProps) {
 	const { locale, profile } = await resolveParams(params);
-	return <MemberSystemProfile locale={locale} slug={profile} />;
+	return profile === "iman-jafari" ? (
+		<MemberSystemProfile locale={locale} slug={profile} />
+	) : (
+		<FreelanceProfile locale={locale} slug={profile} />
+	);
 }

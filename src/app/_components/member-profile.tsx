@@ -119,6 +119,36 @@ export function MemberSystemProfile({
 					</div>
 				</section>
 
+				<section className="profile-system" aria-labelledby="history-title">
+					<div className="site-shell">
+						<Reveal className="profile-system__heading">
+							<p className="section-kicker">
+								{locale === "fa" ? "سوابق رزومه" : "CV history"}
+							</p>
+							<h2 id="history-title">
+								{locale === "fa"
+									? "گزیده سوابق حرفه‌ای"
+									: "Selected professional history"}
+							</h2>
+						</Reveal>
+						<div className="profile-detail-grid profile-detail-grid--single">
+							<Reveal>
+								<article className="profile-detail">
+									<span>{localizeDigits("01", locale)}</span>
+									<h3>
+										{locale === "fa" ? "نکات برجسته رزومه" : "CV highlights"}
+									</h3>
+									<ul>
+										{member.cvHistory[locale].map((item) => (
+											<li key={item}>{item}</li>
+										))}
+									</ul>
+								</article>
+							</Reveal>
+						</div>
+					</div>
+				</section>
+
 				<section className="profile-cta" aria-labelledby="profile-cta-title">
 					<div className="site-shell profile-cta__inner">
 						<div>

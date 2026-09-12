@@ -82,12 +82,12 @@ type RouteMetadataDefinition = {
 export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	"/hamid-ft": {
 		title: {
-			en: "Hamid Fattahi — Product Interface Engineer",
-			fa: "حمید فتاحی — مهندس رابط‌های محصول",
+			en: "Hamid Fattahi — Freelance Frontend Developer",
+			fa: "حمید فتاحی — توسعه‌دهنده فریلنس فرانت‌اند",
 		},
 		description: {
-			en: "Moonlancer system profile for frontend architecture across commerce, ERP, fintech, logistics, maps, and operational control surfaces.",
-			fa: "نقش حمید فتاحی در تیم Moonlancer: معماری فرانت‌اند برای فروش آنلاین، ERP، فین‌تک، لجستیک، نقشه و ابزارهای مدیریت عملیات.",
+			en: "I build React and Next.js websites, dashboards, and web applications. My work spans marketplace interfaces, payment journeys, map-based tools, and WordPress sites, with close attention to responsive design and the details people use every day.",
+			fa: "وب‌سایت، داشبورد و اپلیکیشن وب را با React و Next.js می‌سازم. تجربه‌ام از رابط‌های مارکت‌پلیس و پرداخت تا ابزارهای نقشه‌محور و سایت‌های وردپرسی را در بر می‌گیرد؛ با توجه ویژه به طراحی واکنش‌گرا و جزئیاتی که کاربر هر روز با آن‌ها کار می‌کند.",
 		},
 		path: "/hamid-ft",
 		keywords: [
@@ -100,12 +100,12 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	},
 	"/mohammadreza-parsaeian": {
 		title: {
-			en: "MohammadReza Parsaeian — Backend Systems Lead",
-			fa: "محمدرضا پارسائیان — رهبر سامانه‌های بک‌اند",
+			en: "MohammadReza Parsaeian — Freelance Senior Backend Developer",
+			fa: "محمدرضا پارسائیان — توسعه‌دهنده ارشد فریلنس بک‌اند",
 		},
 		description: {
-			en: "Moonlancer system profile for distributed backend services, payments, GPS platforms, monitoring, delivery systems, and technical leadership.",
-			fa: "نقش محمدرضا پارسائیان در تیم Moonlancer: معماری سرویس‌های توزیع‌شده، پرداخت، GPS، مانیتورینگ و راهبری فنی بک‌اند.",
+			en: "I design and develop backend services with Go, PHP, Laravel, and Node.js. My background covers payment integrations, GPS tracking, delivery services, and server monitoring, alongside experience leading developers.",
+			fa: "با Go، PHP، Laravel و Node.js سرویس‌های بک‌اند را طراحی و توسعه می‌دهم. سابقه‌ام شامل اتصال درگاه پرداخت، ردیابی GPS، سرویس‌های تحویل و پایش سرور است و تجربه هدایت توسعه‌دهندگان را هم دارم.",
 		},
 		path: "/mohammadreza-parsaeian",
 		keywords: [
@@ -119,12 +119,12 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	},
 	"/mohammadreza-vasebi": {
 		title: {
-			en: "Mohammadreza Vasebi — Mobile Operations Engineer",
-			fa: "محمدرضا واسبی — مهندس عملیات موبایل",
+			en: "Mohammadreza Vasebi — Freelance React Native Developer",
+			fa: "محمدرضا واسبی — توسعه‌دهنده فریلنس React Native",
 		},
 		description: {
-			en: "Moonlancer system profile for cross-platform commerce, delivery, credit, QR, realtime, and map-based field applications.",
-			fa: "نقش محمدرضا واسبی در تیم Moonlancer: ساخت اپ‌های چندسکویی برای فروش، تحویل، اعتبار، QR و عملیات میدانی نقشه‌محور.",
+			en: "I build mobile apps with React Native, Expo, and TypeScript. My experience includes shopping, delivery, wallet, and real-estate apps, with maps, realtime features, and careful attention to performance on the device.",
+			fa: "با React Native، Expo و TypeScript اپلیکیشن موبایل می‌سازم. تجربه‌ام شامل اپ‌های خرید، تحویل، کیف پول و املاک است؛ همراه با نقشه، قابلیت‌های لحظه‌ای و توجه به عملکرد روی دستگاه.",
 		},
 		path: "/mohammadreza-vasebi",
 		keywords: [
@@ -137,12 +137,12 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	},
 	"/mehdi-alikhani": {
 		title: {
-			en: "Mehdi Alikhani — Commerce Platform Engineer",
-			fa: "مهدی علیخانی — مهندس پلتفرم‌های تجاری",
+			en: "Mehdi Alikhani — Freelance Laravel & Magento Developer",
+			fa: "مهدی علیخانی — توسعه‌دهنده فریلنس Laravel و Magento",
 		},
 		description: {
-			en: "Moonlancer system profile for headless commerce, Laravel microservices, Magento, payments, messaging, testing, and Linux operations.",
-			fa: "نقش مهدی علیخانی در تیم Moonlancer: توسعه پلتفرم‌های Headless، سرویس‌های Laravel و Magento، پرداخت، پیام‌رسانی و عملیات Linux.",
+			en: "I develop PHP backends, Laravel services, and Magento stores. I work on headless commerce, third-party integrations, payment gateways, and messaging, with hands-on experience in testing and Linux server operations.",
+			fa: "بک‌اند PHP، سرویس‌های Laravel و فروشگاه‌های Magento را توسعه می‌دهم. روی فروشگاه‌های هدلس، اتصال سرویس‌های بیرونی، درگاه پرداخت و پیام‌رسانی کار می‌کنم و در تست نرم‌افزار و مدیریت سرور لینوکس تجربه عملی دارم.",
 		},
 		path: "/mehdi-alikhani",
 		keywords: [
@@ -156,12 +156,12 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	},
 	"/omid-nikroo": {
 		title: {
-			en: "Omid Nikroo — ERP Backend Engineer",
-			fa: "امید نیکرو — مهندس بک‌اند ERP",
+			en: "Omid Nikroo — Freelance .NET Backend Developer",
+			fa: "امید نیکرو — توسعه‌دهنده فریلنس بک‌اند .NET",
 		},
 		description: {
-			en: "Moonlancer system profile for .NET ERP services across warehouse, sales, distribution, HR, routing, realtime data, and databases.",
-			fa: "نقش امید نیکرو در تیم Moonlancer: توسعه سرویس‌های .NET برای ERP، انبار، فروش، پخش، منابع انسانی و برنامه‌ریزی مسیر.",
+			en: "I develop C# and ASP.NET Core backends for business applications, ecommerce, and ERP. My work includes warehouse and sales modules, location-based routing, B2B ordering, realtime communication, and database optimization.",
+			fa: "بک‌اند C# و ASP.NET Core را برای نرم‌افزارهای کسب‌وکار، فروش آنلاین و ERP توسعه می‌دهم. تجربه‌ام شامل ماژول‌های انبار و فروش، مسیریابی مکانی، سفارش‌گیری B2B، ارتباط لحظه‌ای و بهینه‌سازی پایگاه داده است.",
 		},
 		path: "/omid-nikroo",
 		keywords: [
@@ -176,12 +176,12 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	},
 	"/keyvan-moradkhani": {
 		title: {
-			en: "Keyvan Moradkhani — Commerce Backend Engineer",
-			fa: "کیوان مرادخانی — مهندس بک‌اند تجارت",
+			en: "Keyvan Moradkhani — Freelance Backend & Full-stack Developer",
+			fa: "کیوان مرادخانی — توسعه‌دهنده فریلنس بک‌اند و فول‌استک",
 		},
 		description: {
-			en: "Moonlancer system profile for multi-vendor commerce, REST APIs, catalog rules, tax automation, promotions, and operational tools.",
-			fa: "نقش کیوان مرادخانی در تیم Moonlancer: توسعه بک‌اند فروشگاه‌های چندفروشنده، REST API، کاتالوگ، قیمت‌گذاری و ابزارهای مدیریت فروش.",
+			en: "I build Laravel backends and full-stack web applications, from online stores and marketplaces to booking platforms and internal tools. I work across APIs, databases, and React interfaces to turn a project brief into usable software.",
+			fa: "بک‌اند Laravel و اپلیکیشن وب فول‌استک می‌سازم؛ از فروشگاه و مارکت‌پلیس تا پلتفرم رزرو و ابزارهای داخلی. با API، پایگاه داده و رابط React کار می‌کنم تا شرح یک پروژه را به نرم‌افزاری قابل استفاده تبدیل کنم.",
 		},
 		path: "/keyvan-moradkhani",
 		keywords: [
@@ -196,12 +196,12 @@ export const profileMetadata: Record<ProfileRoute, RouteMetadataDefinition> = {
 	},
 	"/sepide-soltanpour": {
 		title: {
-			en: "Sepide Soltanpour — Data & AI Interface Engineer",
-			fa: "سپیده سلطان‌پور — مهندس رابط‌های داده و AI",
+			en: "Sepide Soltanpour — Freelance Frontend Developer",
+			fa: "سپیده سلطان‌پور — توسعه‌دهنده فریلنس فرانت‌اند",
 		},
 		description: {
-			en: "Moonlancer system profile for data-heavy admin products, AI consultation flows, forms, charts, maps, and frontend delivery.",
-			fa: "نقش سپیده سلطان‌پور در تیم Moonlancer: ساخت پنل‌های داده‌محور، تجربه‌های هوش مصنوعی، فرم‌های پیچیده، نمودار و نقشه.",
+			en: "I create responsive React and Next.js interfaces for web products, admin dashboards, and AI-assisted experiences. I enjoy making complex forms, charts, and data flows feel clear and approachable.",
+			fa: "با React و Next.js رابط‌های واکنش‌گرا برای محصولات وب، داشبوردهای مدیریتی و تجربه‌های مبتنی بر هوش مصنوعی می‌سازم. دوست دارم فرم‌ها، نمودارها و جریان‌های پیچیده داده را به تجربه‌ای روشن و قابل فهم تبدیل کنم.",
 		},
 		path: "/sepide-soltanpour",
 		keywords: [
