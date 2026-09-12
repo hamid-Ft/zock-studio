@@ -163,8 +163,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.17)
       '@types/react-scroll':
-        specifier: ^3.0.27
-        version: 3.0.27
+        specifier: 1.8.10
+        version: 1.8.10
       '@types/three':
         specifier: ^0.184.1
         version: 0.184.1
@@ -1286,11 +1286,8 @@ packages:
     peerDependencies:
       '@types/react': '*'
 
-  '@types/react-scroll@3.0.27':
-    resolution: {integrity: sha512-wWU/8+vcp15vwgw8NctMreln2CMmGzA1eOUx8fRQvePZrVcHvIEhNI6nZjJ1o6RZlCuVPp5L08OAfObABs/EUA==}
-
-  '@types/react@0.14.57':
-    resolution: {integrity: sha512-NBWpx7QYHlOmfTDUihI9XSaE1cUTk9kDIhB0k/wi5/vHqqMabj3+L7jBAkwjL+APl99LWeatMwAAcDR6B677mw==}
+  '@types/react-scroll@1.8.10':
+    resolution: {integrity: sha512-RD4Z7grbdNGOKwKnUBKar6zNxqaW3n8m9QSrfvljW+gmkj1GArb8AFBomVr6xMOgHPD3v1uV3BrIf01py57daQ==}
 
   '@types/react@19.2.17':
     resolution: {integrity: sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw==}
@@ -3444,11 +3441,9 @@ snapshots:
     dependencies:
       '@types/react': 19.2.17
 
-  '@types/react-scroll@3.0.27':
+  '@types/react-scroll@1.8.10':
     dependencies:
-      '@types/react': 0.14.57
-
-  '@types/react@0.14.57': {}
+      '@types/react': 19.2.17
 
   '@types/react@19.2.17':
     dependencies:
