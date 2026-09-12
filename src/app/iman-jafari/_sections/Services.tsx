@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 import AnimatedHeaderSection from "../_components/AnimatedHeaderSection";
 import { servicesData } from "../_constants";
 import { useMediaQuery } from "react-responsive";
@@ -62,11 +63,11 @@ with smooth UX that drive growth — not headaches.`;
                 {service.items.map((item, itemIndex) => (
                   <div key={`item-${index}-${itemIndex}`}>
                     <h3 className="flex">
-                      <img
-                        src={item.icon.src}
-                        alt="technology icon"
-                        width="56"
-                        height="56"
+                      <Image
+                        src={item.icon}
+                        alt=""
+                        width={56}
+                        height={56}
                       />
                     </h3>
                   </div>

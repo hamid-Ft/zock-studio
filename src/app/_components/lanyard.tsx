@@ -10,7 +10,7 @@ import {
 	RigidBody,
 	useRopeJoint,
 	useSphericalJoint,
-	RigidBodyProps,
+	type RigidBodyProps,
 } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';

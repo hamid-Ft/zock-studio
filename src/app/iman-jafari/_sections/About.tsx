@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Image from "next/image";
 import AnimatedHeaderSection from "../_components/AnimatedHeaderSection";
 import { AnimatedTextLines } from "../_components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
@@ -48,11 +49,14 @@ const About = () => {
 				withScrollTrigger={true}
 			/>
 			<div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-white/60">
-				<img
+				<Image
 					ref={imgRef}
 					src="/iman-jafari/images/me.png"
-					alt="man"
-					className="w-md rounded-3xl"
+					alt="Iman Jafari"
+					width={1952}
+					height={2176}
+					sizes="(min-width: 1024px) 28rem, calc(100vw - 5rem)"
+					className="w-md h-auto rounded-3xl"
 				/>
 				<AnimatedTextLines text={aboutText} className={"w-full"} />
 			</div>

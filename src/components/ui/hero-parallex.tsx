@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, type MotionValue } from 'framer-motion';
 import Image from 'next/image';
 
 export const HeroParallax = ({

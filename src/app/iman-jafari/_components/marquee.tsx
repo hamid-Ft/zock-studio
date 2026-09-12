@@ -70,8 +70,9 @@ const Marquee = ({
 			i: number;
 		gsap.set(items, {
 			// convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
-			xPercent: (i, el, target) => {
-				const w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px") as string));
+			xPercent: (i, el) => {
+				const w = parseFloat(gsap.getProperty(el, "width", "px") as string);
+				widths[i] = w;
 				xPercents[i] = snap(
 					(parseFloat(gsap.getProperty(el, "x", "px") as string) / w) * 100 +
 						(gsap.getProperty(el, "xPercent") as number)
@@ -118,13 +119,15 @@ const Marquee = ({
 					},
 					distanceToLoop / pixelsPerSecond
 				)
-				.add("label" + i, distanceToStart / pixelsPerSecond);
+				.add(`label${i}`, distanceToStart / pixelsPerSecond);
 			times[i] = distanceToStart / pixelsPerSecond;
 		}
 		function toIndex(index: number, vars?: gsap.TweenVars) {
 			vars = vars || {};
-			Math.abs(index - curIndex) > length / 2 &&
-				(index += index > curIndex ? -length : length); // always go in the shortest direction
+			if (Math.abs(index - curIndex) > length / 2) {
+				// Always go in the shortest direction.
+				index += index > curIndex ? -length : length;
+			}
 			const newIndex = gsap.utils.wrap(0, length, index);
 			let time = times[newIndex];
 			if (time > tl.time() !== index > curIndex) {

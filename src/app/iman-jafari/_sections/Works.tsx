@@ -5,6 +5,7 @@ import { projects } from "../_constants";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 
 type QuickToFn = (value: number) => void;
 
@@ -153,15 +154,19 @@ const Works = () => {
 						</div>
 						{/* mobile preview image */}
 						<div className="relative flex items-center justify-center px-10 md:hidden h-[400px]">
-							<img
+							<Image
 								src={project.bgImage}
 								alt={`${project.name}-bg-image`}
-								className="object-cover w-full h-full rounded-md brightness-50"
+								fill
+								sizes="100vw"
+								className="object-cover rounded-md brightness-50"
 							/>
-							<img
+							<Image
 								src={project.image}
 								alt={`${project.name}-image`}
-								className="absolute bg-center px-14 rounded-xl"
+								fill
+								sizes="100vw"
+								className="object-contain p-14 rounded-xl"
 							/>
 						</div>
 					</div>
@@ -172,10 +177,12 @@ const Works = () => {
 					className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[680px] h-[400px] md:block hidden opacity-0"
 				>
 					{currentIndex !== null && (
-						<img
+						<Image
 							src={projects[currentIndex].image}
 							alt="preview"
-							className="object-cover mg:object-contain w-full h-full bg-white"
+							fill
+							sizes="680px"
+							className="object-cover mg:object-contain bg-white"
 						/>
 					)}
 				</div>

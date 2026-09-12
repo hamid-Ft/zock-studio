@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import type React from 'react';
 import { usePathname } from 'next/navigation';
 import { CalendarIcon, HomeIcon, MailIcon } from 'lucide-react';
 

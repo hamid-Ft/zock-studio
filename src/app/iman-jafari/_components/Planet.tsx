@@ -3,12 +3,6 @@ import { useGLTF } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-type GLTFCallback = () => {
-	nodes: Record<string, any>;
-	materials: Record<string, any>;
-};
-
 export function Planet(props: JSX.IntrinsicElements["group"]) {
 	const shapeContainer = useRef<any>(null);
 	const shperesContainer = useRef<any>(null);
@@ -16,8 +10,11 @@ export function Planet(props: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/iman-jafari/models/keyboard.glb");
 
 	useGSAP(() => {
+		const shape = shapeContainer.current;
+		if (!shape) return;
+
 		const tl = gsap.timeline();
-		tl.from(shapeContainer.current!.position, {
+		tl.from(shape.position, {
 			y: 5,
 			duration: 3,
 			ease: "circ.out",

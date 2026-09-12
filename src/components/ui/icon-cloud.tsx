@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Cloud, fetchSimpleIcons, ICloud, renderSimpleIcon, SimpleIcon } from 'react-icon-cloud';
+import { Cloud, fetchSimpleIcons, type ICloud, renderSimpleIcon, type SimpleIcon } from 'react-icon-cloud';
 
 export const cloudProps: Omit<ICloud, 'children'> = {
 	containerProps: {
@@ -72,9 +72,8 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
 	}, [data, theme]);
 
 	return (
-		// @ts-ignore
 		<Cloud {...cloudProps}>
-			<>{renderedIcons}</>
+			{renderedIcons}
 		</Cloud>
 	);
 }
