@@ -28,9 +28,10 @@ import {
 } from "@/content/moonlancer-content";
 import { localizeDigits, type Locale } from "@/lib/i18n";
 import { createProfessionalServiceJsonLd } from "@/lib/structured-data";
-import { OrbitalField } from "./orbital-field";
+import { RetailFlow } from "./retail-flow";
 import { Reveal } from "./reveal";
 import { StudioFooter, StudioHeader } from "./studio-chrome";
+import "./retail-hero.css";
 
 export async function StudioLanding({ locale }: { locale: Locale }) {
 	const copy = getSiteCopy(locale);
@@ -42,39 +43,52 @@ export async function StudioLanding({ locale }: { locale: Locale }) {
 			<JsonLd data={createProfessionalServiceJsonLd(locale)} />
 			<StudioHeader locale={locale} onHomepage />
 			<main id="main-content">
-				<section className="hero" aria-labelledby="hero-title">
-					<div className="site-shell hero__layout">
-						<div className="hero__copy">
-							<p className="hero__eyebrow">
+				<section className="retail-hero" aria-labelledby="hero-title">
+					<div className="site-shell">
+						<div className="retail-hero__eyebrow">
+							<p>
 								<span aria-hidden="true" />
 								{copy.hero.eyebrow}
 							</p>
-							<h1 id="hero-title">{copy.hero.headline}</h1>
-							<p className="hero__body">{copy.hero.body}</p>
-							<div className="hero__actions">
-								<Button asChild size="lg">
-									<Link
-										href={`/${locale}/contact`}
-										data-umami-event="cta_click"
-										data-umami-event-location="hero"
-									>
-										{copy.hero.primary}
-										<DiagonalArrow data-icon="inline-end" aria-hidden="true" />
-									</Link>
-								</Button>
-								<Button asChild size="lg" variant="outline">
-									<Link href="#work">
-										{copy.hero.secondary}
-										<ArrowDown data-icon="inline-end" aria-hidden="true" />
-									</Link>
-								</Button>
-							</div>
-							<p className="hero__availability">
-								<ShieldCheck aria-hidden="true" />
-								{copy.hero.note}
-							</p>
+							<span className="retail-hero__edition" aria-hidden="true">
+								MOONLANCER — SYSTEMS IN SYNC
+							</span>
 						</div>
-						<OrbitalField />
+						<div className="retail-hero__intro">
+							<h1 id="hero-title">
+								{copy.hero.headline}
+								<span>{copy.hero.headlineAccent}</span>
+							</h1>
+							<div className="retail-hero__aside">
+								<p>{copy.hero.body}</p>
+								<div className="retail-hero__actions">
+									<Button asChild size="lg">
+										<Link
+											href={`/${locale}/contact`}
+											data-umami-event="cta_click"
+											data-umami-event-location="hero"
+										>
+											{copy.hero.primary}
+											<DiagonalArrow aria-hidden="true" />
+										</Link>
+									</Button>
+									<Link className="retail-hero__work" href="#work">
+										{copy.hero.secondary}
+										<ArrowDown aria-hidden="true" />
+									</Link>
+								</div>
+							</div>
+						</div>
+						<RetailFlow locale={locale} />
+						<div className="retail-hero__footer">
+							<p>{copy.hero.note}</p>
+							<a href="#work">
+								{locale === "fa"
+									? "از اتصال تا اطمینان"
+									: "From connection to confidence"}
+								<ArrowDown aria-hidden="true" />
+							</a>
+						</div>
 					</div>
 				</section>
 

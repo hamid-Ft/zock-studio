@@ -1,0 +1,61 @@
+import type { Locale } from "@/lib/i18n";
+
+export const retailFlowCopy = {
+	en: {
+		label: "Interactive system example",
+		caption: "Follow one sale through the system.",
+		store: "Store / 01",
+		receipt: "A sale begins.",
+		order: "Order #0042",
+		item: "Everyday essentials",
+		quantity: "3 items · 1 connected journey",
+		saved: "Saved on device",
+		complete: "Sale synchronized",
+		sending: "Sending saved sale",
+		queued: "Waiting to sync",
+		steps: [
+			{ title: "Payment", detail: "Payment confirmed" },
+			{ title: "Inventory", detail: "Stock updated" },
+			{ title: "Warehouse", detail: "Order received" },
+			{ title: "Reporting", detail: "Sale recorded" },
+		],
+		connected: "Every part, in sync.",
+		offline:
+			"Connection lost. The sale is saved on the device; connected systems wait.",
+		syncing:
+			"Connection restored. The saved sale is moving through the system.",
+		recovered: "Back in sync. One saved sale, delivered to every system.",
+		tryOutage: "Try an outage",
+		restore: "Restore connection",
+		restoring: "Synchronizing…",
+		noScript: "Enable JavaScript to try the outage example.",
+	},
+	fa: {
+		label: "نمونه تعاملی یک سیستم",
+		caption: "مسیر یک فروش را در سیستم دنبال کنید.",
+		store: "فروشگاه / ۰۱",
+		receipt: "شروع یک فروش.",
+		order: "سفارش شماره ۰۰۴۲",
+		item: "کالاهای روزمره",
+		quantity: "۳ کالا · یک مسیر متصل",
+		saved: "ذخیره روی دستگاه",
+		complete: "فروش همگام شد",
+		sending: "ارسال فروش ذخیره‌شده",
+		queued: "در انتظار همگام‌سازی",
+		steps: [
+			{ title: "پرداخت", detail: "پرداخت تأیید شد" },
+			{ title: "موجودی", detail: "موجودی به‌روز شد" },
+			{ title: "انبار", detail: "سفارش دریافت شد" },
+			{ title: "گزارش‌گیری", detail: "فروش ثبت شد" },
+		],
+		connected: "همه‌چیز، هماهنگ با هم.",
+		offline:
+			"ارتباط قطع شد. فروش روی دستگاه ذخیره شده و سیستم‌های متصل منتظر می‌مانند.",
+		syncing: "ارتباط برقرار شد. فروش ذخیره‌شده در مسیر همگام‌سازی با سیستم‌هاست.",
+		recovered: "دوباره هماهنگ شدیم. یک فروش ذخیره‌شده، در تمام سیستم‌ها ثبت شد.",
+		tryOutage: "قطعی را امتحان کنید",
+		restore: "برقراری دوباره ارتباط",
+		restoring: "در حال همگام‌سازی…",
+		noScript: "برای امتحان نمونه قطعی، جاوااسکریپت را فعال کنید.",
+	},
+} satisfies Record<Locale, unknown>;

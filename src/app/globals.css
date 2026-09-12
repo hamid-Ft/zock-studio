@@ -1776,11 +1776,20 @@ label:has(input) {
 	border-inline-start: 1px solid var(--line);
 }
 
+.profile-detail-grid--single {
+	grid-template-columns: 1fr;
+	max-width: 56rem;
+}
+
 .profile-detail {
 	min-height: 25rem;
 	border-inline-end: 1px solid var(--line);
 	border-bottom: 1px solid var(--line);
 	padding: 1.75rem;
+}
+
+:where(.profile-detail-grid--single) .profile-detail {
+	min-height: auto;
 }
 
 .profile-detail > span {

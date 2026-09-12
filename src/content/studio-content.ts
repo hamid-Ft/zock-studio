@@ -26,6 +26,7 @@ export type MemberProfile = {
 	systemTypes: LocalizedList;
 	technicalRange: string[];
 	deliveryRemit: LocalizedList;
+	cvHistory: LocalizedList;
 };
 
 export const members: MemberProfile[] = [
@@ -74,6 +75,18 @@ export const members: MemberProfile[] = [
 				"ساخت و نگه‌داری دیزاین سیستم",
 				"اتصال فرانت‌اند به سرویس‌ها",
 				"بازبینی واکنش‌گرایی و آماده‌سازی انتشار",
+			],
+		},
+		cvHistory: {
+			en: [
+				"Built frontend systems for Aldy commerce and seller/operations workflows across storefront and admin interfaces.",
+				"Built map-based B2B and commerce interfaces at DESNA, including BAT route planning, Unilever ordering, RoyalJeans, and GhajariFood.",
+				"Built WordPress websites for industrial clients at Niklink Agency after developing web, PHP, and SQL foundations at Kiasoren.",
+			],
+			fa: [
+				"ساخت سیستم‌های فرانت‌اند برای جریان فروش و عملیات آلدی در صفحات فروشگاه، پنل فروشنده و داشبوردهای داخلی.",
+				"ساخت رابط‌های نقشه‌محور B2B و فروشگاهی در DESNA، شامل برنامه‌ریزی مسیر BAT، سفارش‌گیری Unilever، RoyalJeans و GhajariFood.",
+				"ساخت وب‌سایت‌های وردپرسی برای مشتریان صنعتی در Niklink Agency پس از یادگیری مبانی توسعه وب، PHP و SQL در Kiasoren.",
 			],
 		},
 	},
@@ -127,6 +140,18 @@ export const members: MemberProfile[] = [
 				"تحویل فرانت‌اند در چرخه CI/CD",
 			],
 		},
+		cvHistory: {
+			en: [
+				"Built four admin panels for Tejarat Electronic Farhangian and operational dashboards around commerce workflows.",
+				"Developed an AI-powered consultation platform with a remote Canadian team, including assistant features and responsive interfaces.",
+				"Delivered frontend work for Ghajari Restaurant, Royal Jeans, BAT Retailer App, and a restaurant management web platform.",
+			],
+			fa: [
+				"ساخت ۴ پنل مدیریتی برای تجارت الکترونیک فرهنگیان و داشبوردهای عملیاتی برای گردش‌های فروشگاهی.",
+				"توسعه پلتفرم مشاوره مبتنی بر هوش مصنوعی با یک تیم کانادایی به‌صورت دورکاری، شامل قابلیت‌های دستیار و رابط‌های واکنش‌گرا.",
+				"تحویل فرانت‌اند برای پروژه‌هایی مانند Ghajari Restaurant، Royal Jeans، BAT Retailer و یک پلتفرم مدیریت رستوران.",
+			],
+		},
 	},
 	{
 		slug: "mohammadreza-vasebi",
@@ -173,6 +198,18 @@ export const members: MemberProfile[] = [
 				"اتصال امکانات بومی دستگاه",
 				"مدیریت داده و رویدادهای realtime",
 				"بهینه‌سازی عملکرد و تست روی دستگاه",
+			],
+		},
+		cvHistory: {
+			en: [
+				"Built and maintained React Native product surfaces for Aldy across shopping, delivery, wallet, and QR-driven operations.",
+				"Implemented mapping and realtime workflows for logistics, field operators, and customer-facing mobile journeys.",
+				"Developed a real-estate mobile app with Expo at MelkeTabriz and a Bare CLI mobile app at Sharestoon.",
+			],
+			fa: [
+				"ساخت و نگهداشت محصول موبایل React Native برای آلدی در حوزه خرید، تحویل، کیف پول و عملیات مبتنی بر QR.",
+				"پیاده‌سازی جریان‌های نقشه‌محور و realtime برای تیم‌های لجستیک، اپراتور میدانی و مسیرهای تجربه کاربر موبایل.",
+				"توسعه اپلیکیشن موبایل املاک با Expo در MelkeTabriz و اپلیکیشن موبایل با Bare CLI در Sharestoon.",
 			],
 		},
 	},
@@ -224,6 +261,18 @@ export const members: MemberProfile[] = [
 				"مسئولیت تحویل بک‌اند",
 			],
 		},
+		cvHistory: {
+			en: [
+				"Led development of Aldy Pay digital debit and credit services and the Rocket courier service at Aldy.",
+				"Developed Zarinpal and Sibank payment integrations, Firebase notifications, and Sepidar services at Sika Group.",
+				"Rebuilt GPS tracking backends with Go and MongoDB at Basir Andishan, adding Redis caching and Zabbix/Prometheus monitoring.",
+			],
+			fa: [
+				"رهبری توسعه سرویس بدهی و اعتبار دیجیتال Aldy Pay و سرویس پیک Rocket در آلدی.",
+				"توسعه اتصال به پرداخت زرین‌پال و سیبانک، اعلان‌های Firebase و سرویس سپیدار در Sika Group.",
+				"بازطراحی بک‌اند ردیابی GPS با Go و MongoDB در بصیر اندیشان، همراه با کش Redis و پایش با Zabbix و Prometheus.",
+			],
+		},
 	},
 	{
 		slug: "mehdi-alikhani",
@@ -271,6 +320,18 @@ export const members: MemberProfile[] = [
 				"توسعه بسته‌های اتصال سرویس",
 				"تست خودکار",
 				"استقرار و عملیات سرور",
+			],
+		},
+		cvHistory: {
+			en: [
+				"Built headless commerce and multi-vendor platform services with Laravel/Magento and GraphQL integrations.",
+				"Delivered payment gateway and message-broker package engineering for enterprise workflows and travel-service systems.",
+				"Built delivery SaaS and tested microservices at Zoot Co, and implemented server automation and Linux operations at Sepehr Rayan.",
+			],
+			fa: [
+				"ساخت سرویس‌های تجارت چندفروشنده و headless با Laravel/Magento و اتصال‌های GraphQL.",
+				"تحویل سرویس‌های یکپارچه پرداخت و message broker برای گردش‌های سازمانی و سیستم‌های خدماتی/مسافرتی.",
+				"ساخت نرم‌افزار خدمات تحویل و تست میکروسرویس‌ها در Zoot Co، و پیاده‌سازی اتوماسیون سرور و عملیات لینوکس در سپهر رایان.",
 			],
 		},
 	},
@@ -322,6 +383,18 @@ export const members: MemberProfile[] = [
 				"اتصال به سرویس‌های بیرونی",
 			],
 		},
+		cvHistory: {
+			en: [
+				"Developed multi-vendor marketplace and e-commerce rule engines for Aldy Shop and Shop Plus.",
+				"Built tax invoice automation, promotions, and reservation-related workflows with Laravel/PHP.",
+				"Built Bootimar flight booking and Navaran car rental platforms, and a WordPress consultation site for Global University Match.",
+			],
+			fa: [
+				"توسعه‌ی موتور قوانین بازارچه چندفروشنده برای Aldy Shop و Shop Plus.",
+				"پیاده‌سازی اتوماسیون فاکتور مالیاتی، کمپین‌ها و جریان‌های رزرو/درآمد با Laravel/PHP.",
+				"ساخت پلتفرم رزرو پرواز Bootimar، پلتفرم اجاره خودرو Navaran و وب‌سایت مشاوره وردپرسی Global University Match.",
+			],
+		},
 	},
 	{
 		slug: "omid-nikroo",
@@ -371,6 +444,18 @@ export const members: MemberProfile[] = [
 				"اتصال سرویس‌های realtime",
 			],
 		},
+		cvHistory: {
+			en: [
+				"Implemented .NET ERP modules across Lina Group and DESNA covering warehousing, sales, distribution, and route planning.",
+				"Designed realtime communication and service boundaries using SignalR, DDD, CQRS, and clean service structures.",
+				"Supported and optimized production databases at DESNA for commerce, B2B, and restaurant ordering systems.",
+			],
+			fa: [
+				"پیاده‌سازی ماژول‌های ERP مبتنی بر .NET برای Lina Group و DESNA در حوزه انبار، فروش، توزیع و برنامه‌ریزی مسیر.",
+				"طراحی ارتباطات realtime و مرزبندی سرویس‌ها با SignalR، DDD، CQRS و ساختار سرویس تمیز.",
+				"پشتیبانی و بهینه‌سازی پایگاه‌های داده عملیاتی در DESNA برای سیستم‌های فروشگاهی، B2B و سفارش‌گیری رستوران.",
+			],
+		},
 	},
 	{
 		slug: "iman-jafari",
@@ -417,6 +502,18 @@ export const members: MemberProfile[] = [
 				"پیاده‌سازی واکنش‌گرا",
 				"مدیریت و اتصال state فرانت‌اند",
 				"بهبود جزئیات تعامل",
+			],
+		},
+		cvHistory: {
+			en: [
+				"Built Berlan Shop with Next.js, server actions, an admin dashboard, and authentication.",
+				"Integrated Leaflet into Berlan Shop to help users find their location.",
+				"Built a bookstore project with Neon Postgres for data management and shadcn/ui components for the interface.",
+			],
+			fa: [
+				"ساخت Berlan Shop با Next.js، اکشن‌های سرور، داشبورد مدیریت و احراز هویت.",
+				"اتصال Leaflet به Berlan Shop برای کمک به کاربران در یافتن موقعیت مکانی خود.",
+				"ساخت پروژه کتاب‌فروشی با Neon Postgres برای مدیریت داده و کامپوننت‌های shadcn/ui برای رابط کاربری.",
 			],
 		},
 	},
